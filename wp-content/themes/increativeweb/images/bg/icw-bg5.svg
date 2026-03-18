@@ -1,0 +1,9 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+#line{-webkit-animation:line-top 10s ease-in-out infinite alternate;animation:line-top 10s ease-in-out infinite alternate}#line-1{-webkit-animation:line-top-two 10s ease-in-out infinite alternate;animation:line-top-two 10s ease-in-out infinite alternate;-webkit-animation-delay:2s;animation-delay:2s}@-webkit-keyframes line-top{from{-webkit-transform:translate(0%,0%);transform:translate(0%,0%)}to{-webkit-transform:translate(0%,100%);transform:translate(0%,100%)}}@keyframes line-top{from{-webkit-transform:translate(0%,0%);transform:translate(0%,0%)}to{-webkit-transform:translate(0%,100%);transform:translate(0%,100%)}}@-webkit-keyframes line-top-two{from{-webkit-transform:translate(0%,0%);transform:translate(0%,0%)}to{-webkit-transform:translate(0%,100%);transform:translate(0%,100%)}}@keyframes line-top-two{from{-webkit-transform:translate(0%,0%);transform:translate(0%,0%)}to{-webkit-transform:translate(0%,100%);transform:translate(0%,100%)}}
+</style>
+<rect x="257" width="2" height="100%" fill="#EEEEEE"/>
+<g id="line"><rect x="257" width="2" height="110" fill="#FB6A1F"/></g>
+<rect x="1139" width="2" height="100%" fill="#EEEEEE"/>
+<g id="line-1"><rect x="1139" width="2" height="110" fill="#FB6A1F"/></g>
+</svg>

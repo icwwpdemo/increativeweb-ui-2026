@@ -1,0 +1,182 @@
+/*
+
+@Author: InCreativeWeb | Creative Thinking
+@URL: https://increativeweb.com/
+*/
+@import url('//fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('../fonts/CocogooseClassic-Light.eot');
+    src: url('../fonts/CocogooseClassic-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CocogooseClassic-Light.woff2') format('woff2'),
+        url('../fonts/CocogooseClassic-Light.woff') format('woff'),
+        url('../fonts/CocogooseClassic-Light.ttf') format('truetype'),
+        url('../fonts/CocogooseClassic-Light.svg#CocogooseClassic-Light') format('svg');
+    font-weight: 300;
+    font-style: normal; font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('../fonts/CocogooseClassic-Medium.eot');
+    src: url('../fonts/CocogooseClassic-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CocogooseClassic-Medium.woff2') format('woff2'),
+        url('../fonts/CocogooseClassic-Medium.woff') format('woff'),
+        url('../fonts/CocogooseClassic-Medium.ttf') format('truetype'),
+        url('../fonts/CocogooseClassic-Medium.svg#CocogooseClassic-Medium') format('svg');
+    font-weight: 400;
+    font-style: normal; font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('../fonts/CocogooseClassic-Bold.eot');
+    src: url('../fonts/CocogooseClassic-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CocogooseClassic-Bold.woff2') format('woff2'),
+        url('../fonts/CocogooseClassic-Bold.woff') format('woff'),
+        url('../fonts/CocogooseClassic-Bold.ttf') format('truetype'),
+        url('../fonts/CocogooseClassic-Bold.svg#CocogooseClassic-Bold') format('svg');
+    font-weight: 600;
+    font-style: normal; font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('../fonts/CocogooseClassic-Black.eot');
+    src: url('../fonts/CocogooseClassic-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CocogooseClassic-Black.woff2') format('woff2'),
+        url('../fonts/CocogooseClassic-Black.woff') format('woff'),
+        url('../fonts/CocogooseClassic-Black.ttf') format('truetype'),
+        url('../fonts/CocogooseClassic-Black.svg#CocogooseClassic-Black') format('svg');
+    font-weight: 800;
+    font-style: normal; font-display: swap;
+}
+
+$bodyfont: 'Inter', sans-serif;
+$font-h: 'Cocogoose', sans-serif;
+// $bodyfontsize	    : 17px;
+// $bodyfontcolor		:#000;
+// $bodybg		        :#f7f7f7;
+
+// $primary	        :#4e1c65;
+// $primaryHover	    :#592074;
+// $secondary        	:#b35e03;
+
+
+$color-primary      : #0693e3;
+$color-secondary    : #fee13e;
+$color-dark         : #212539;
+$body-color         : #162634;
+
+
+@mixin font-smoothing{-webkit-font-smoothing: antialiased; 
+	text-rendering: optimizeLegibility;	
+	-moz-osx-font-smoothing: grayscale;}
+
+@mixin transition-cubic{-webkit-transition: all 0.4s ease;	
+	-moz-transition: all 0.4s ease;	transition: all 0.4s ease;
+	transition-duration: 500ms;	-webkit-transition-duration: 500ms;	
+	transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+	-webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1)}
+
+@mixin transition{-webkit-transition: all .35s ease-in-out;
+	-moz-transition: all .35s ease-in-out; 
+	-ms-transition: all .35s ease-in-out; 
+	-o-transition: all .35s ease-in-out; 
+	transition: all .35s ease-in-out;}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+/* Mixins */
+  @mixin box-shadow($box-shadow) {
+	-moz-box-shadow: $box-shadow;
+	-webkit-box-shadow: $box-shadow;
+	box-shadow: $box-shadow;
+  }
+  @mixin all-transition($duration, $ease) {
+	-webkit-transition: all $duration $ease;
+	-moz-transition: all $duration $ease;
+	-o-transition: all $duration $ease;
+	transition: all $duration $ease;
+  }
+  @mixin opacity($value) {
+	-moz-opacity: $value;
+	-khtml-opacity: $value;
+	-webkit-opacity: $value;
+	opacity: $value;
+  }
+  @mixin transform($value) {
+	-moz-transform: $value;
+	-webkit-transform: $value;
+	-o-transform: $value;
+	-ms-transform: $value;
+	transform: $value;
+  }
+  
+  @mixin filter($value) {
+	-webkit-filter: $value;
+	-moz-filter: $value;
+	-o-filter: $value;
+	filter: $value;
+  }
+  
+  /* display: flex */
+  @mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+  }
+  @mixin inline-flex {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+  }
+  @mixin justify-content($justify) {
+	-webkit-justify-content: $justify;
+	-moz-justify-content: $justify;
+	-ms-justify-content: $justify;
+	justify-content: $justify;
+	-ms-flex-pack: $justify;
+  }
+  @mixin align-items($align) {
+	-webkit-align-items: $align;
+	-moz-align-items: $align;
+	-ms-align-items: $align;
+	-ms-flex-align: $align;
+	align-items: $align;
+  }
+  @mixin flex-direction($direction) {
+	-webkit-flex-direction: $direction;
+	-moz-flex-direction: $direction;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+  }
+  @mixin flex-wrap($wrap) {
+	-webkit-flex-wrap: $wrap;
+	-moz-flex-wrap: $wrap;
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+  }
+  @mixin flex-flow($flow) {
+	-webkit-flex-flow: $flow;
+	-moz-flex-flow: $flow;
+	-ms-flex-flow: $flow;
+	flex-flow: $flow;
+  }
+  // Display Order
+  @mixin order($val) {
+	-webkit-box-ordinal-group: $val;
+	-moz-box-ordinal-group: $val;
+	-ms-flex-order: $val;
+	-webkit-order: $val;
+	order: $val;
+  }

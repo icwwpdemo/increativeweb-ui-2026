@@ -16,7 +16,7 @@ $footer_bg = ( $footer_bg_image != '' ) ? 'data-background="' . esc_url( $footer
         <div class="footer-hire-us">
             <span class="sub-title">Hire Us To Change Your Brand</span>
             <h2 class="mw-1060">Do you have a project, maybe you are looking for creative solutions.</h2>
-            <a href="/contact-us/" class="icw-btn">Let's Work Together</a>
+            <a href="/contact-us/" class="icw-btn">Let's Work Together<span class="arrow"></span></a>
         </div>
         <div class="footer-info">
           <div class="row">

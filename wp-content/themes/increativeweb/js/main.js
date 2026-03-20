@@ -29,7 +29,14 @@ var $ = jQuery.noConflict();
       return false;
     });
 
-
+    // ADD ARROW in ICW BUTTON
+    if($('.icw-btn').length) {
+      $('.icw-btn').each(function() {
+        if ($(this).find('.arrow').length === 0) {
+          $(this).append('<span class="arrow"></span>');
+        }
+      });
+    }
     // SEARCH BOX
     $('.navbar .search-button').on('click', function (e) {
       $(this).toggleClass('open');
@@ -84,6 +91,7 @@ var $ = jQuery.noConflict();
 
   });
   // END DOCUMENT READY
+
 
 
   icw_cf7_labels();
@@ -581,7 +589,8 @@ $('#main-content').on('contextmenu', 'img', function(e){
 });
 
 })(jQuery);
-
+var copy = document.querySelector(".logos-slide").cloneNode(true);
+document.querySelector(".logos").appendChild(copy);
 
 function icw_cf7_labels() {
   var input = $('.form-control');

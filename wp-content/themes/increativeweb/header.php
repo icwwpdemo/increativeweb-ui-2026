@@ -59,7 +59,7 @@ if ( icw_get_option( 'enable_page_transition' ) ): ?>
     <?php endif; ?>
     <?php
     if ( icw_get_option( 'enable_navbar_button' ) ): ?>
-    <div class="navbar-button"> <a href="<?php echo esc_url( icw_get_option( 'navbar_button_url' ) ); ?>"> <span><?php echo esc_html( icw_get_option( 'navbar_button_label' ) ); ?></span>
+    <div class="navbar-button"> <a href="<?php echo esc_url( icw_get_option( 'navbar_button_url' ) ); ?>"><?php echo esc_html( icw_get_option( 'navbar_button_label' ) ); ?><span class="arrow"></span>
       <?php
       if ( icw_get_option( 'navbar_button_icon' ) ):
         ?>

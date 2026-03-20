@@ -3,58 +3,36 @@
 @Author: InCreativeWeb | Creative Thinking
 @URL: https://increativeweb.com/
 */
-@import url('//fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@font-face {
-    font-family: 'Cocogoose';
-    src: url('../fonts/CocogooseClassic-Light.eot');
-    src: url('../fonts/CocogooseClassic-Light.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/CocogooseClassic-Light.woff2') format('woff2'),
-        url('../fonts/CocogooseClassic-Light.woff') format('woff'),
-        url('../fonts/CocogooseClassic-Light.ttf') format('truetype'),
-        url('../fonts/CocogooseClassic-Light.svg#CocogooseClassic-Light') format('svg');
-    font-weight: 300;
-    font-style: normal; font-display: swap;
+@font-face { 
+    font-family: 'Satoshi'; 
+    src: url('../fonts/satoshi-bold.woff2'); 
+    font-display: swap; 
+    font-style: normal; 
+    font-weight: 700 
+}
+@font-face { 
+    font-family: 'Satoshi'; 
+    src: url('../fonts/satoshi-medium.woff2'); 
+    font-display: swap; 
+    font-style: normal; 
+    font-weight: 500 
+}
+@font-face { 
+    font-family: 'Satoshi'; 
+    src: url('../fonts/satoshi-extrabold.woff2'); 
+    font-style: normal; 
+    font-weight: 900 
+}
+@font-face { 
+    font-family: 'Satoshi'; 
+    src: url('../fonts/satoshi-regular.woff2'); 
+    font-display: swap; 
+    font-style: normal; 
+    font-weight: 400 
 }
 
-
-@font-face {
-    font-family: 'Cocogoose';
-    src: url('../fonts/CocogooseClassic-Medium.eot');
-    src: url('../fonts/CocogooseClassic-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/CocogooseClassic-Medium.woff2') format('woff2'),
-        url('../fonts/CocogooseClassic-Medium.woff') format('woff'),
-        url('../fonts/CocogooseClassic-Medium.ttf') format('truetype'),
-        url('../fonts/CocogooseClassic-Medium.svg#CocogooseClassic-Medium') format('svg');
-    font-weight: 400;
-    font-style: normal; font-display: swap;
-}
-
-@font-face {
-    font-family: 'Cocogoose';
-    src: url('../fonts/CocogooseClassic-Bold.eot');
-    src: url('../fonts/CocogooseClassic-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/CocogooseClassic-Bold.woff2') format('woff2'),
-        url('../fonts/CocogooseClassic-Bold.woff') format('woff'),
-        url('../fonts/CocogooseClassic-Bold.ttf') format('truetype'),
-        url('../fonts/CocogooseClassic-Bold.svg#CocogooseClassic-Bold') format('svg');
-    font-weight: 600;
-    font-style: normal; font-display: swap;
-}
-
-@font-face {
-    font-family: 'Cocogoose';
-    src: url('../fonts/CocogooseClassic-Black.eot');
-    src: url('../fonts/CocogooseClassic-Black.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/CocogooseClassic-Black.woff2') format('woff2'),
-        url('../fonts/CocogooseClassic-Black.woff') format('woff'),
-        url('../fonts/CocogooseClassic-Black.ttf') format('truetype'),
-        url('../fonts/CocogooseClassic-Black.svg#CocogooseClassic-Black') format('svg');
-    font-weight: 800;
-    font-style: normal; font-display: swap;
-}
-
-$bodyfont: 'Inter', sans-serif;
-$font-h: 'Cocogoose', sans-serif;
+$bodyfont: 'Satoshi',sans-serif;
+$font-h: 'Satoshi',sans-serif;
 // $bodyfontsize	    : 17px;
 // $bodyfontcolor		:#000;
 // $bodybg		        :#f7f7f7;

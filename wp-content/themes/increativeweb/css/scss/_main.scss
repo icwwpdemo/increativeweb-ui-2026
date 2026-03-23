@@ -14,7 +14,7 @@ body {
     line-height: 1.6;
     font-size: 17px;
     @include font-smoothing;
-
+    background: #fbfbfb;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -2718,7 +2718,7 @@ a {
 .section-title-text-center {
     .section-title {
         text-align: center;  
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto 60px;      
         padding-right: 0;
         .info {
@@ -2730,46 +2730,113 @@ a {
 
 
 /* ICON BOX */
+.icon-box-block {
+    position: relative;
+    z-index: 1;
+    .icon-box {
+        &:first-child {
+            margin-top: 0;  
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &.left-block {
+        .icon-box {
+            &:first-child {
+                top: 70px;
+                left: 100px;
+            }
+            &:nth-child(2) {
+                top: 40%;
+                left: -20px;
+            }
+            &:last-child {
+                bottom: 50px;
+                left: 70px;
+            }
+        }
+    }
+    &.right-block {
+        .icon-box {
+            &:first-child {
+                top: 50px;
+                right: 100px;
+            }
+            &:nth-child(2) {
+                top: 32%;
+                right: -20px;
+            }
+            &:last-child {
+                bottom: 100px;
+                right: 70px;
+            }
+        }
+    }
+}
+.icon-box-image-block {
+    z-index: 5;
+    position: relative;
+}
 .icon-box {
     width: 100%;
-    display: block;
-    padding-right: 0 15%;
-    margin: 15px 0;
-
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 30px 0;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    position: absolute;
+    @include transition;  
+    opacity: 0.8;
+    filter: grayscale(0.9);
+    z-index: 1;
     figure {
-        width: 100%;
+        width: max-content;
         display: block;
         margin-bottom: 20px;
         position: relative;
+        padding: 10px 0 0 10px;
 
         &:before {
             content: "";
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             background: $color-primary;
             position: absolute;
-            left: -10px;
-            top: -10px;
+            left: 0px;
+            top: 0px;
             opacity: 0.05;
             border-radius: 50%;
         }
 
         img {
-            height: 70px;
+            min-width: 50px;
+            height: 50px;
+            flex: none;
         }
     }
 
     h3 {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 22px;
-
+        color: $color-dark;
         a {
-            color: $color-primary;
+            color: $color-dark;
+            &::before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                content: "";
+            }
         }
     }
 
     .info {
-        padding-right: 10%;
         font-weight: 400;
     }
 
@@ -2780,13 +2847,37 @@ a {
         font-size: 13px;
         letter-spacing: 1px;
         @include transition;
-        margin-top: 10px;
+        margin-top: 20px;
         text-underline-offset: 4px;
         text-decoration: underline;
-
-        &:hover {
+        position: relative;
+        line-height: 1;
+        &::after {
+            content: '';
+            width: 0%;
+            height: 1px;
+            background: $color-dark;
+            display: inline-block;
+            position: absolute;
+            bottom: -3px !important;
+            left: 0;
+            @include transition;
+        }
+    }
+    
+    &:hover {
+        box-shadow: 0px 0px 10px 0px #e6e6e7;
+        transform: translateY(-5px);
+        opacity: 1;
+        z-index: 10 !important;
+        filter: unset;
+        a {
             text-decoration: none;
             color: $color-primary;
+            &::after {
+                width: 100%;
+                background-color: $color-primary;
+            }
         }
     }
 }
@@ -2970,13 +3061,13 @@ a {
         line-height: 1;
         margin-top: -17px;
         letter-spacing: -0.04em;
-        // .odometer-value {
-        //     -webkit-background-clip: text;
-        //     background-clip: text;
-        //     display: inline-block;
-        //     -webkit-text-fill-color: transparent;
-        //     background-image: linear-gradient(90deg,rgba(6, 147, 227, 1) 0%, rgba(254, 225, 62, 1) 100%);
-        // }
+        .odometer-value {
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: inline-block;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(90deg,rgba(6, 147, 227, 1) 0%, rgba(254, 225, 62, 1) 100%);
+        }
     }
 
     .value {

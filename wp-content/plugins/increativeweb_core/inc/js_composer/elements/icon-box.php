@@ -46,7 +46,7 @@ class WPBakeryShortCode_icw_icon_box extends WPBakeryShortCode {
     }
     ?>
 <div class="icon-box <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
-  <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( get_the_title( $icon ) ); ?>"></figure>
+  <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( get_the_title( $icon ) ); ?>"></figure><div class="box-body">
   <?php 
   if(!empty($title)) {
     if(!empty($a_href)) {
@@ -61,7 +61,7 @@ class WPBakeryShortCode_icw_icon_box extends WPBakeryShortCode {
   if(!empty($a_href)) {
      echo '<a class="icw-btn-link" title="'.esc_attr($a_title ).'" target="'.esc_attr( $a_target ).'" href="'.esc_url($a_href).'">'.esc_attr($a_title ).'</a>';
   } ?>
-</div>
+</div></div>
 <?php
 return ob_get_clean();
 }

@@ -28,15 +28,7 @@ var $ = jQuery.noConflict();
       $(selected_tab).stop().show();
       return false;
     });
-
-    // ADD ARROW in ICW BUTTON
-    if($('.icw-btn').length) {
-      $('.icw-btn').each(function() {
-        if ($(this).find('.arrow').length === 0) {
-          $(this).append('<span class="arrow"></span>');
-        }
-      });
-    }
+    
     // SEARCH BOX
     $('.navbar .search-button').on('click', function (e) {
       $(this).toggleClass('open');

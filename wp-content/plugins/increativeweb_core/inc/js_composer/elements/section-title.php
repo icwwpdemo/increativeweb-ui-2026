@@ -41,7 +41,7 @@ class WPBakeryShortCode_icw_section_title extends WPBakeryShortCode {
   <div class="info"><?php echo wp_kses_post( $description ); ?></div>
   <?php } 
   if( $content != '' ) { 
-    echo '<div class="info mt-3">'. $content . '</div>';
+    echo '<div class="info mt-4">'. $content . '</div>';
   }?>
 </div>
 <?php

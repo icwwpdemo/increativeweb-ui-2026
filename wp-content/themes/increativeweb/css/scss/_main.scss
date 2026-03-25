@@ -1859,72 +1859,100 @@ a {
 
 // BTN
 .icw-btn {
-    line-height: 1;
+    position: relative;
     display: inline-flex;
     align-items: center;
-    background: transparent;
-    border: 1px solid $color-secondary;
-    color: $color-dark;
-    padding: 0 15px;
-    border-radius: 10px;
-    font-weight: 800;
+    text-align: center;
+    padding: 0 72px 0 24px;
+    height: auto;
+    min-height: 50px;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: .01em;
-    @include transition;
-    font-size: 16px;
-    position: relative;
-    z-index: 1;
-    height: 50px;
+    line-height: 1;
+    text-decoration: none !important;
+    border-radius: 10px;
+    transition: background 0.45s ease-out, border-color 0.3s, color 0.3s, padding 0.3s;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
     overflow: hidden;
-    width: fit-content;
+    color: $color-dark;
+    border: 1px solid $color-secondary;
+    z-index: 2;
+    background: linear-gradient(90deg, #ffffff 50%, $color-secondary 50%);
+    background-size: calc(200% + 4px) 100%;
+    background-position: -18px 0;
+    background-repeat: no-repeat;
     &::before {
         content: '';
+        background-image: url('../images/icons/arrow-btn.svg');
+        background-position: center center;
+        background-size: contain;
         position: absolute;
         display: flex;
-        -webkit-flex-direction: column;
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        width: 8px;
-        height: 8px;
+        width: 12px;
+        height: 12px;
         top: 50%;
         left: initial;
-        right: 20px;
-        background-color: transparent;
-        @include transition;
-        margin: -3.5px 0 0;
+        right: 18px;
+        transition: all 0.55s;
+        margin: -6px 0 0;
         z-index: 2;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 48px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: initial;
+        -webkit-border-radius: inherit;
+        border-radius: inherit;
+        background-color: $color-secondary;
     }
     
     &.--primary {
-        color: $color-dark;
-        border-color: $color-primary;
+        border: 1px solid $color-primary;
+        background: linear-gradient(90deg, #ffffff 50%, $color-primary 50%);
+        background-size: calc(200% + 4px) 100%;
+        background-position: -1.7857em 0;
+        background-repeat: no-repeat;
+        &::before {
+            filter: invert(1);
+        }
+        &::after {
+            background-color: $color-primary;
+        }
+        &:hover, &:focus {        
+            background-position: calc(100% + 1px) 0;
+            color: #ffffff !important;
+            border-color: $color-primary;
+            padding: 0 64px 0 32px;
+        }
     }
 
+    &:hover, &:focus {        
+        background-position: calc(100% + 1px) 0;
+        color: $color-dark !important;
+        border-color: $color-secondary;
+        padding: 0 64px 0 32px;
+        &::before {
+            animation: 0.3s linear 0s 1 normal none running button_arrows;
+            color: #ffffff;
+        }
+    }
     &.--btn-sm {
         height: 48px;
         line-height: 48px;
         padding: 0 15px;
         margin-top: 0px;
         font-size: 14px;
-    }
-
-    &:hover,
-    &:focus {
-        color: $color-dark;
-        text-decoration: none;
-        &::before {
-            transform: translateX(calc(100% - 56px));
-        }
-        .arrow {
-            &::before {
-                transform: translateX(200%);
-                opacity: 0;
-            }
-            &::after {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
     }
 
     @media only screen and (max-width: 991px),
@@ -1940,6 +1968,32 @@ a {
         &:focus {
             transform: none !important;
         }
+    }
+}
+@keyframes button_arrows {
+    0% {
+        right: 18px;
+        left: initial;
+        margin-top: -6px;
+        opacity: 1
+    }
+
+    49.9% {
+        right: 10px;
+        margin-top: -16px;
+        opacity: 0
+    }
+
+    50% {
+        right: 24px;
+        margin-top: 6px;
+        opacity: 0;
+    }
+
+    100% {
+        right: 18px;
+        margin-top: -6px;
+        opacity: 1
     }
 }
 

@@ -59,7 +59,7 @@ class WPBakeryShortCode_icw_icon_box extends WPBakeryShortCode {
     echo '<div class="info">'.$description.'</div>';
   }
   if(!empty($a_href)) {
-     echo '<a class="icw-btn-link" title="'.esc_attr($a_title ).'" target="'.esc_attr( $a_target ).'" href="'.esc_url($a_href).'">'.esc_attr($a_title ).'</a>';
+     echo '<a class="icw-btn-link" title="'.esc_attr($a_title ).'" target="'.esc_attr( $a_target ).'" href="'.esc_url($a_href).'">'.esc_attr($a_title ).'<svg viewBox="0 0 13 20"><polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5"></polyline></svg></a>';
   } ?>
 </div></div>
 <?php

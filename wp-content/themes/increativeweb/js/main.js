@@ -88,6 +88,20 @@ var $ = jQuery.noConflict();
 
   icw_cf7_labels();
 
+  // New Hero SLIDER
+  var swiperheroslider = new Swiper(".swiper-hero-slider", {
+      grabCursor: true,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+  });
   // SLIDER
   var mainslider = new Swiper('.hero-slider-main', {
     spaceBetween: 0,

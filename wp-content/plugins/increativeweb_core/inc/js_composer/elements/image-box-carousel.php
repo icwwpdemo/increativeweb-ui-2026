@@ -9,8 +9,9 @@ class WPBakeryShortCode_icw_image_box_carousel extends WPBakeryShortCode {
   protected function content( $atts, $content = null ) {
 
     extract( shortcode_atts( array(
+      'layout_type' => 'slider',	
       'details' => '',
-	  'image' => '',
+	    'image' => '',
       'animate_block' => 'false',
       'animation_type' => 'fadeIn',
       'animation_delay' => '',
@@ -24,57 +25,104 @@ $wrapper_class = array();
       $wrapper_class[] = 'wow';
       $wrapper_class[] = $animation_type;
     }
-
     $wrapper_class = implode( ' ', $wrapper_class );
 	  
     $images = wp_get_attachment_image_src( $image, '' );
     $details = vc_param_group_parse_atts( $atts[ 'details' ] );
-    ?>
-<div class="carousel-slider icw-lazy-swiper <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
-  <div class="swiper-wrapper">
-    <?php
-    $new_accordion_value = array();
-    foreach ( $details as $data ) {
-      $new_line = $data;
-      $new_line[ 'value' ] = isset( $new_line[ 'value' ] ) ? $new_line[ 'value' ] : '';
-      $new_line[ 'title' ] = isset( $new_line[ 'title' ] ) ? $new_line[ 'title' ] : '';
-      $new_line[ 'description' ] = isset( $new_line[ 'description' ] ) ? $new_line[ 'description' ] : '';
-      $new_line[ 'image' ] = isset( $new_line[ 'image' ] ) ? $new_line[ 'image' ] : '';
+    
+    if( $layout_type === 'slider' ) { ?>
+    <div class="carousel-slider icw-lazy-swiper <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
+      <div class="swiper-wrapper">
+        <?php
+        $new_accordion_value = array();
+        foreach ( $details as $data ) {
+          $new_line = $data;
+          $new_line[ 'value' ] = isset( $new_line[ 'value' ] ) ? $new_line[ 'value' ] : '';
+          $new_line[ 'title' ] = isset( $new_line[ 'title' ] ) ? $new_line[ 'title' ] : '';
+          $new_line[ 'description' ] = isset( $new_line[ 'description' ] ) ? $new_line[ 'description' ] : '';
+          $new_line[ 'image' ] = isset( $new_line[ 'image' ] ) ? $new_line[ 'image' ] : '';
 
-      $new_accordion_value[] = $new_line;
+          $new_accordion_value[] = $new_line;
 
-    }
+        }
 
-    $idd = 0;
-    foreach ( $new_accordion_value as $accordion ):
-      $idd++;
-    $images = wp_get_attachment_image_src( $accordion[ 'image' ], '' );
-    ?>
-    <?php if($accordion['image']){ ?>
-    <div class="swiper-slide">
-		  <div class="image-content-box"> 
-			   <?php if($accordion['value']) { ?>
-          <span><?php echo esc_html($accordion['value']);?></span>
-          <?php } ?>
-          <?php if($accordion['title']) { ?>
-          <h2><?php echo esc_html($accordion['title']);?></h2>
-          <?php } ?>
-          <?php if($accordion['description']) { ?>
-          <div class="info"><?php echo esc_attr($accordion['description']);?></div>
-          <?php } ?>
-            <figure class="position-relative"><img class="swiper-lazy" src="<?php echo esc_url($images[0]);?>" alt="<?php echo esc_attr($accordion['title']);?>"><div class="swiper-lazy-preloader"></div></figure>
-          </div>
-          <!-- end image-content-box --> 
+        $idd = 0;
+        foreach ( $new_accordion_value as $accordion ):
+          $idd++;
+        $images = wp_get_attachment_image_src( $accordion[ 'image' ], '' );
+        ?>
+        <?php if($accordion['image']){ ?>
+        <div class="swiper-slide">
+          <div class="image-content-box"> 
+            <?php if($accordion['value']) { ?>
+              <span><?php echo esc_html($accordion['value']);?></span>
+              <?php } ?>
+              <?php if($accordion['title']) { ?>
+              <h2><?php echo esc_html($accordion['title']);?></h2>
+              <?php } ?>
+              <?php if($accordion['description']) { ?>
+              <div class="info"><?php echo esc_attr($accordion['description']);?></div>
+              <?php } ?>
+                <figure class="position-relative"><img class="swiper-lazy" src="<?php echo esc_url($images[0]);?>" alt="<?php echo esc_attr($accordion['title']);?>"><div class="swiper-lazy-preloader"></div></figure>
+              </div>
+              <!-- end image-content-box --> 
+        </div>
+        <?php } ?>
+        <?php
+        endforeach;
+        wp_reset_query();
+        ?>
+      </div>
+      <div class="swiper-pagination"></div>
+      <!-- end swiper-wrapper -->
+    </div>
+    <?php } else { ?>
+    <div class="icw-step-block" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
+        <div class="step-wrapper">
+        <?php
+        $new_accordion_value = array();
+        foreach ( $details as $data ) {
+          $new_line = $data;
+          $new_line[ 'value' ] = isset( $new_line[ 'value' ] ) ? $new_line[ 'value' ] : '';
+          $new_line[ 'title' ] = isset( $new_line[ 'title' ] ) ? $new_line[ 'title' ] : '';
+          $new_line[ 'description' ] = isset( $new_line[ 'description' ] ) ? $new_line[ 'description' ] : '';
+          $new_line[ 'image' ] = isset( $new_line[ 'image' ] ) ? $new_line[ 'image' ] : '';
+
+          $new_accordion_value[] = $new_line;
+
+        }
+
+        $idd = 0;
+        foreach ( $new_accordion_value as $accordion ):
+          $idd++;
+        $images = wp_get_attachment_image_src( $accordion[ 'image' ], '' );
+        ?>
+        <?php if($accordion['image']){ ?>
+          <div class="step-content-box"> 
+            <?php if($accordion['value']) { ?>
+              <div class="step-counter"><?php echo esc_html($accordion['value']);?></div>
+              <?php } ?>
+              <div class="step-info">
+                <?php if($accordion['title']) { ?>
+                <h3><?php echo esc_html($accordion['title']);?></h3>
+                <?php } ?>
+                <?php if($accordion['description']) { ?>
+                <div class="info"><?php echo esc_attr($accordion['description']);?></div>
+                <?php } ?>
+              </div>
+                <div class="step-image">
+                  <figure class="position-relative"><img src="<?php echo esc_url($images[0]);?>" alt="<?php echo esc_attr($accordion['title']);?>"></figure>
+                </div>
+              </div>
+              <!-- end image-content-box --> 
+        <?php } ?>
+        <?php
+        endforeach;
+        wp_reset_query();
+        ?>
+      </div>
     </div>
     <?php } ?>
-    <?php
-    endforeach;
-    wp_reset_query();
-    ?>
-  </div>
-  <div class="swiper-pagination"></div>
-  <!-- end swiper-wrapper -->
-</div>
 <!-- end carousel-slider -->
 
 <?php
@@ -90,11 +138,22 @@ vc_map( array(
   "content_element" => true,
   "category" => PAGE_BUILDER_GROUP,
   'params' => array(
+    array(
+			"type" 			=> 	"dropdown",
+			"heading" 		=> 	__( 'Layout Type', 'ICWTHEME' ),
+			"param_name" 	=> 	"layout_type",
+			"value"			=>	array(
+				"Slider"		=> 'slider',
+				"Step"		=> 'step',
+				
+			)
+		),
 	  array(
       'type' => 'param_group',
       'param_name' => 'details',
       'heading' => __( 'Item Slider', 'ICWTHEME' ),
-      'params' => array(
+      'params' => 
+      array(
         array(
           'type' => 'attach_image',
           'heading' => __( 'Image', 'ICWTHEME' ),

@@ -29,9 +29,9 @@ class WPBakeryShortCode_icw_cta_box extends WPBakeryShortCode {
     $wrapper_class = implode( ' ', $wrapper_class );
     ?>
 <div class="cta-box <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
- 
+  <div class="section-title">
   <?php if( $tagline != '' ) { ?>
-  <h6><?php echo wp_kses_post( $tagline ); ?></h6>
+  <div class="tagline"><?php echo wp_kses_post( $tagline ); ?></div>
   <?php } ?>
 	
   <?php if( $title != '' ) { ?>
@@ -39,8 +39,9 @@ class WPBakeryShortCode_icw_cta_box extends WPBakeryShortCode {
 	 <?php } ?>
 	
   <?php if( $button_label != '' ) { ?>
-  <a href="<?php echo esc_url( $button_url ); ?>"><?php echo wp_kses_post( $button_label ); ?></a>
+  <a class="icw-btn" href="<?php echo esc_url( $button_url ); ?>"><?php echo wp_kses_post( $button_label ); ?></a>
   <?php } ?>
+  </div>
 </div>
 <?php
 

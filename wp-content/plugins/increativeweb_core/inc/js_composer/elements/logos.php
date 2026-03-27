@@ -81,7 +81,7 @@ vc_map( array(
     array(
 			"type" 			=> 	"dropdown",
 			"heading" 		=> 	__( 'With Title', 'ICWTHEME' ),
-			"param_name" 	=> 	"iftitle",
+			"param_name" 	=> 	"title",
 			"group" 		=> 'General',
 			"value"			=>	array(
 				"Show"		=> 'show',

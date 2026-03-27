@@ -832,12 +832,27 @@ acf_add_local_field_group(array(
                 'button_label' => 'Add Slides',
                 'sub_fields' => array(
                     array(
+                        'key' => 'field_5beab032f1b41',
+                        'label' => 'Background Color',
+                        'name' => 'bg_color',
+                        'type' => 'color_picker',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '#0693e3',
+                    ),
+                    array(
                         'key' => 'field_5be24bf235015',
                         'label' => 'Background Image',
                         'name' => 'background_image',
                         'type' => 'image',
                         'instructions' => '',
-                        'required' => 1,
+                        'required' => 0,
                         'conditional_logic' => 0,
                         'wrapper' => array(
                             'width' => '',

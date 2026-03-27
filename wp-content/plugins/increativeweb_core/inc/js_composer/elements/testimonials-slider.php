@@ -38,22 +38,17 @@ class WPBakeryShortCode_icw_testimonials_slider extends WPBakeryShortCode {
     ?>
 
 <div class="testimonials-slider-block">
+  <div class="section-title">
 <?php if( $tagline ) { ?>
 <span class="tagline"><?php echo esc_html( $tagline ); ?></span>
 <?php } ?>
 <?php if( $title ) { ?>
 <h2><?php echo wp_kses_post( $title ); ?></h2>
 <?php } ?> 
+</div>
 <div class="testimonials-quote"><svg xmlns="http://www.w3.org/2000/svg" width="82.039" height="74.185" viewBox="0 0 82.039 74.185"><g transform="translate(82.039 74.185) rotate(180)"><path d="M34.91,14.547c-14.545,3.2-17.454,11.344-17.454,24.727H34.91V74.185H0V38.11C0,10.183,13.092.29,34.91,0Zm47.129,0c-14.546,3.2-17.456,11.344-17.456,24.727H82.039V74.185H47.129V38.11C47.129,10.183,60.219.29,82.039,0Z" fill="#f37d19"></path></g></svg></div>
 
-<div class="testimonials-slider <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
-  <div class="animation-svg-block">
-      <div class="animation-svg-circle">
-          <svg width="580" height="400" class="svg-morph">
-          <path id="svg_morph" d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z"></path>
-        </svg>
-      </div>
-  </div>
+<div class="testimonials-slider <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>  
   <div class="swiper-wrapper">
       <?php
       $new_testimonials_value = array();
@@ -81,17 +76,24 @@ class WPBakeryShortCode_icw_testimonials_slider extends WPBakeryShortCode {
       ?>
       <div class="swiper-slide">
         <div class="testimonial">
-            <figure data-icw="icw----fadeInUp"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url($client_img);?>" alt="<?php echo esc_attr($testimonial['title']);?>"></figure>
+          <div class="testimonial-info">
+            <div class="testimonial-user">
+              <?php 
+                if($testimonial['name']) { 
+                  echo '<div class="name">'.$testimonial['name'].'</div>';
+                } 
+                if($testimonial['jobtitle']) { 
+                  echo '<small>'.$testimonial['jobtitle'].'</small>';
+                }
+              ?>
+            </div>
+            <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url($client_img);?>" alt="<?php echo esc_attr($testimonial['jobtitle']);?>"></figure>
+          </div>
             <div class="content">
               <?php if($testimonial['testimonial']) { 
                 echo '<div class="info" data-icw="icw-fadeInUp">'.$testimonial['testimonial'].'</div>';
               }
-              if($testimonial['name']) { 
-                echo '<div class="name" data-icw="icw--fadeInUp">'.$testimonial['name'].'</div>';
-              } 
-              if($testimonial['jobtitle']) { 
-              echo '<small data-icw="icw---fadeInUp">'.$testimonial['jobtitle'].'</small>';
-              } ?>
+               ?>
           </div>
         </div>
       </div>

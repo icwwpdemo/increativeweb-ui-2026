@@ -101,6 +101,10 @@ var $ = jQuery.noConflict();
           translate: ["100%", 0, 0],
         },
       },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
   });
   // SLIDER
   var mainslider = new Swiper('.hero-slider-main', {

@@ -65,7 +65,7 @@ class WPBakeryShortCode_icw_hero_slider extends WPBakeryShortCode {
         $alt = (!empty($alt_slide)) ? esc_attr($alt_slide) : esc_html( get_bloginfo( 'name' ) );
       ?>
         <div class="swiper-slide hero-slide">
-          <div class="inner" style="background-image: url('<?php echo esc_url( $background_image ); ?>')">
+          <div class="inner" style="background-color: <?php echo get_sub_field( 'bg_color' ); ?>">
             <?php
                 if ( !empty(get_sub_field( 'title' )) ) {
                   if($j == 1) {
@@ -82,10 +82,13 @@ class WPBakeryShortCode_icw_hero_slider extends WPBakeryShortCode {
                   echo '<div class="action"><a class="icw-btn" href="'.esc_url( $button_link ).'">'.$button_label.'</a></div>';
                 } 
             ?>
+            <div class="animation-svg-circle"> <svg width="580" height="400" class="svg-morph"> <path id="svg_morph" d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z"></path> </svg></div>
           </div>
         </div>
       <?php $j++; endwhile; ?>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
   <!-- <div class="container">
     <div class="swiper-container hero-slider-content">
@@ -154,16 +157,9 @@ z"></path>
 c-19.17,0.109-31.196,3.6-51.309,6.529C15.552,23.209,4.321,22.47,0,22.029V24H240z"></path>
   </svg> -->
   
-  <a class="icw-scroll" href="#scroll">scroll</a>
+  
       </div>
-<div id="scroll"></div>
-<!-- <div class="animation-svg">
-      <div class="circle">
-          <svg width="580" height="400" class="svg-morph">
-          <path id="svg_morph" d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z"></path>
-        </svg>
-      </div>
-  </div> -->
+    
 <?php
 endif;
 

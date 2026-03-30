@@ -26,11 +26,10 @@ class WPBakeryShortCode_icw_recent_news extends WPBakeryShortCode {
     $wrapper_class = implode( ' ', $wrapper_class );
 
     ?>
-<div class="post-slider">
-<div class="swiper-wrapper">
+<div class="recent-post-block">
   <?php
   $recent_posts = wp_get_recent_posts( array(
-    'numberposts' => 5, // Number of recent posts thumbnails to display
+    'numberposts' => 3, // Number of recent posts thumbnails to display
     'post_status' => 'publish' // Show only the published posts
   ) );
   foreach ( $recent_posts as $post ): 
@@ -40,25 +39,23 @@ class WPBakeryShortCode_icw_recent_news extends WPBakeryShortCode {
       $postthumbnail = get_template_directory_uri() . '/images/no-post.jpg';
     }
   ?>
-  <div class="swiper-slide">
+  <!-- <div class="swiper-slide"> -->
     <div class="recent-news <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
       <?php if( icw_get_post_thumbnail_url() ) { ?>
-        <figure class="post-image position-relative"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo $postthumbnail; ?>" alt="<?php the_title_attribute(); ?>"></figure>
+        <div class="post-image"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo $postthumbnail; ?>" alt="<?php the_title_attribute(); ?>"></div>
       <?php } ?>  
       <?php // echo get_the_post_thumbnail($post['ID'], 'full'); ?>
-      <div class="content"> <small> <?php echo date( ' jS F, Y', strtotime( $post['post_date'] ) );?> </small>
+      <div class="content"> 
         <h3 class="h2"><a class="stretched-link" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title'] ?></a></h3>
-        <div class="author post-author"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo get_avatar_url( get_the_author_meta( "user_email", $post["post_author"] ) ) ?> " alt="<?php the_author_meta( 'display_name', $post['post_author'] ); ?>"> <span>by <b>
+        <div class="post-meta">
+          <small class="date"> <?php echo date( ' jS F, Y', strtotime( $post['post_date'] ) );?> </small>
+          <div class="author post-author"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo get_avatar_url( get_the_author_meta( "user_email", $post["post_author"] ) ) ?> " alt="<?php the_author_meta( 'display_name', $post['post_author'] ); ?>"> <span>by <b>
           <?php the_author_meta( 'display_name', $post['post_author'] ); ?>
-          </b></span></div>
+          </b></span></div>          
+        </div>
       </div>
     </div>
-  </div>
   <?php endforeach; wp_reset_query(); ?>
-</div>
-<div class="swiper-pagination"></div>
-<div class="button-prev"><i class="lni lni-angle-double-left"></i></div>
-<div class="button-next"><i class="lni lni-angle-double-right"></i></div>
 </div>
 <?php
 

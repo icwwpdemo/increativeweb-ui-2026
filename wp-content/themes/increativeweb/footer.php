@@ -11,13 +11,15 @@ if ( !$copyright ) {
 
 $footer_bg = ( $footer_bg_image != '' ) ? 'data-background="' . esc_url( $footer_bg_image ) . '"': '';
 ?>
-<footer class="main-footer" <?php echo esc_attr( $footer_bg ); ?> style="<?php echo esc_attr( $footer_style ); ?>">     
-    <div class="container">
-        <div class="footer-hire-us">
-            <span class="sub-title">Hire Us To Change Your Brand</span>
-            <h2 class="mw-1060">Do you have a project, maybe you are looking for creative solutions.</h2>
-            <a href="/contact-us/" class="icw-btn">Let's Work Together<span class="arrow"></span></a>
+<footer class="main-footer" <?php echo esc_attr( $footer_bg ); ?> style="<?php echo esc_attr( $footer_style ); ?>">  
+    <div class="footer-hire-us">
+        <div class="container">
+          <span class="sub-title">Hire Us To Change Your Brand</span>
+          <h2 class="mw-1060">Do you have a project, maybe you are looking for creative solutions.</h2>
+          <a href="/contact-us/" class="icw-btn --primary">Let's Work Together<span class="arrow"></span></a>
         </div>
+    </div>   
+    <div class="container">
         <div class="footer-info">
           <div class="row">
             <?php if( is_active_sidebar('footer-widget-1') || is_active_sidebar('footer-widget-2')) { ?>

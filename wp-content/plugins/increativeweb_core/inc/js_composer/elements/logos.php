@@ -9,6 +9,7 @@ class WPBakeryShortCode_icw_logos extends WPBakeryShortCode {
 
     extract( shortcode_atts( array(
       'brand_logos' => '',
+      'extra_class' => '',
       'iftitle' => 'show',
       'animate_block' => 'false',
       'animation_type' => 'fadeIn',
@@ -32,9 +33,9 @@ class WPBakeryShortCode_icw_logos extends WPBakeryShortCode {
     if( $animate_block == 'yes' && $animation_delay != '' ) { 
       $all_wrapper_class .= ' data-wow-delay="' . esc_attr( $animation_delay ); 
     } 
-    // pr($atts);
+    // pr();
     $image_ids = explode(',',$atts['brand_logos']);
-        $html = '<div class="brand-logos '.$all_wrapper_class.'">';
+        $html = '<div class="brand-logos brand-logos-slider '.$extra_class.' '.$all_wrapper_class.'"><div class="swiper-wrapper">';
             foreach( $image_ids as $image_id ){
                 $images = wp_get_attachment_image_src( $image_id, 'thumbnail' );
                 // $image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true);
@@ -48,15 +49,15 @@ class WPBakeryShortCode_icw_logos extends WPBakeryShortCode {
                 // if(!empty($attachment_content['description'])){
                 //     $html .='<div class="brand-logo"><a href="'.$attachment_content['description'].'" title="'.$attachment_content['caption'].'" target="_blank"><img src="'.$images[0].'" alt="'.$image_alt.'"></a></div>';
                 // } else {
-                    $html .='<figure class="brand-logo" data-toggle="tooltip" title="'.esc_attr( $image_alt ).'"><div><img class="icw-lazy" src="'.esc_url(lazyloading).'" data-src="'.$images[0].'" alt="'.$image_alt.'"></div>';
+                    $html .='<div class="swiper-slide"><div class="brand-logo" data-toggle="tooltip" title="'.esc_attr( $image_alt ).'"><img class="icw-lazy" src="'.esc_url(lazyloading).'" data-src="'.$images[0].'" alt="'.$image_alt.'"></div>';
                     if( $iftitle == 'show' ) {
                       $html .='<h3>'.esc_attr( $image_alt ).'</h3>';
                     }
-                    $html .='</figure>';
+                    $html .='</div>';
                 // }
                 // $images++;
             }
-            $html .='</div>';
+            $html .='</div></div>';
         echo $html;
         /*
     ?>
@@ -95,6 +96,14 @@ vc_map( array(
       "group" => "General",
       "description" 	=> 	__( 'Select the image : BEST SIZE: 120px * 70px', 'ICWTHEME' ),
       'admin_label' => true
+    ),
+    array(
+       "type" => "textfield",
+        "heading" => __( "Extra Class", 'ICWTHEME' ),
+        "param_name" => "extra_class",
+        "group" 		=> 'General',
+        "value" => " ",
+        'admin_label' => true
     ),
 
     array(

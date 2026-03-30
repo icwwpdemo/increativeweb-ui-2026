@@ -311,54 +311,48 @@ var $ = jQuery.noConflict();
     autoplay: {
       delay: 10000,
       disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      // renderBullet: function (index, className) {
-      //     return '<span class="' + className + '"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><circle r="13" cy="15" cx="15"></circle></svg></span>';
-      // },
-  },
+    },    
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    }
   });
 
-  if($('.client-slider').length) {
-    var logoSwiper = new Swiper(".client-slider", {
-        slidesPerView: 2,
-        spaceBetween: 5,
-        freeMode: true,
-        loop: true,
-        lazy: true,
-        lazy: {
-            loadPrevNext: false,
-            loadOnTransitionStart: true
-        },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },        
-        navigation: {
-          nextEl: '.button-next',
-          prevEl: '.button-prev',
-        },
-        breakpoints: {
-            767: {
-                slidesPerView: 3,
-            },
-            992: {
-                slidesPerView: 4,
-            },
-            1200: {
-                slidesPerView: 4,
-            },
-            1600: {
-                slidesPerView: 5,
-            },
-            1920: {
-                slidesPerView: 6,
-            },
-        },
-    });
-}
+  	if($('.client-slider').length) {
+		var logoSwiper = new Swiper(".client-slider", {
+			slidesPerView: "auto",
+			spaceBetween: 20,
+			loop: true,
+			speed: 5000,
+			allowTouchMove: false,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false
+			}
+		});
+	}
+  	if($('.brand-logos-slider').length) {
+		$('.brand-logos-slider').each(function () {
+
+			var isReverse = $(this).hasClass('is-reverse');
+
+			new Swiper(this, {
+				slidesPerView: "auto",
+				spaceBetween: 20,
+				loop: true,
+				speed: 4000, // important for smooth scroll
+				allowTouchMove: false,
+				freeMode: true, // REQUIRED for continuous scroll
+				freeModeMomentum: false,
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+					reverseDirection: isReverse
+				}
+			});
+
+		});
+	}
 
 
   // STEPS SLIDER

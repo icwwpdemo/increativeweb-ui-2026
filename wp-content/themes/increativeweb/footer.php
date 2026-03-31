@@ -1,5 +1,5 @@
 <?php
-$footer_bg_color = icw_get_option( 'footer_bg_color' ) ? icw_get_option( 'footer_bg_color' ) : '#131314';
+$footer_bg_color = icw_get_option( 'footer_bg_color' ) ? icw_get_option( 'footer_bg_color' ) : '#fbfbfb';
 $footer_bg_image = icw_get_option( 'footer_bg_image' ) ? icw_get_option( 'footer_bg_image' ) : '';
 $footer_style = 'background-color: ' . $footer_bg_color;
 $copyright = icw_get_option( 'footer_copyright_text' );
@@ -26,39 +26,42 @@ $footer_bg = ( $footer_bg_image != '' ) ? 'data-background="' . esc_url( $footer
             <?php if( is_active_sidebar('footer-widget-1') ) : ?>
             <div class="col-lg-5">
               <?php dynamic_sidebar( 'footer-widget-1' ); ?>
-              <div class="footer-link-block">
-                  <h3 class="widget-title">Follow us</h3>
-                  <ul class="social-icon">
-                      <li><a href="https://www.facebook.com/InCreativeWeb" target="_blank" title="Like us on FaceBook"><em class="icons icon-facebook"></em>Facebook</a></li>
-                      <li><a href="https://www.instagram.com/increative_web/" target="_blank" title="Visit Instagram"><i class="lni lni-instagram" style="color: #af81ff;margin-right:5px;"></i>Instagram</a></li>
-                      <li><a href="https://www.linkedin.com/company/increativeweb" target="_blank" title="Visit LinkedIn"><em class="icons icon-linkedin"></em>Linkedin</a></li>
-                      <li><a href="https://www.youtube.com/@InCreativeWeb" target="_blank" title="Visit YouTube"><em class="lni lni-youtube" style="color: #d91b1b;margin-right:5px;"></em>YouTube</a></li>
-                  </ul>
-                  <ul class="social-icon">
-                      <li><a href="https://calendly.com/increativeweb/zoom-meeting?month=2026-03" target="_blank" title="Book a Meeting"><i class="lni lni-headphone" style="color: #0693e3;margin-right:5px;"></i>Book a Meeting</a></li>
-                      <!-- <li><a href="https://join.skype.com/invite/b6mT8CUWL4va" target="_blank" title="Connect me on Skype (skype:jayesh2881?chat)"><em class="icons icon-skype"></em>Skype</a></li> -->
-                  </ul>
-              </div>
             </div>
             <?php endif; ?>
-            <div class="col-lg-2 col-6">
-              <?php if(has_nav_menu('footer')):
-                echo '<h3 class="widget-title">Company</h3>';
-                wp_nav_menu( array( 'theme_location' => 'footer', 'container'  => false, 'menu_class' => 'footer-nav','depth' => 1 ) );
-              endif; ?>
-            </div>
-            <div class="col-lg-2 col-6">
-            <?php if(has_nav_menu('services')):
-                echo '<h3 class="widget-title">Services</h3>';
-                wp_nav_menu( array( 'theme_location' => 'services', 'container'  => false, 'menu_class' => 'footer-nav','depth' => 1 ) );
-              endif; ?>
-            </div>
-            <?php if( is_active_sidebar( 'footer-widget-2' ) ) : ?>
-              <div class="col-lg-3">
-                <?php dynamic_sidebar( 'footer-widget-2' ); ?>
+            <div class="col-lg-7">
+              <div class="footer-menus-block">
+                <div class="footer-menu-block">
+                  <?php if(has_nav_menu('footer')):
+                    echo '<h3 class="widget-title">Company</h3>';
+                    wp_nav_menu( array( 'theme_location' => 'footer', 'container'  => false, 'menu_class' => 'footer-nav','depth' => 1 ) );
+                  endif; ?>
+                </div>
+                <div class="footer-menu-block">
+                <?php if(has_nav_menu('services')):
+                    echo '<h3 class="widget-title">Services</h3>';
+                    wp_nav_menu( array( 'theme_location' => 'services', 'container'  => false, 'menu_class' => 'footer-nav','depth' => 1 ) );
+                  endif; ?>
+                </div>
+                <?php if( is_active_sidebar( 'footer-widget-2' ) ) : ?>
+                <div class="footer-menu-block">
+                  <?php dynamic_sidebar( 'footer-widget-2' ); ?>
+                  
+                  <div class="footer-link-block">
+                    <h3 class="widget-title">Follow us</h3>
+                    <ul class="social-icon">
+                        <li><a href="https://www.facebook.com/InCreativeWeb" target="_blank" data-toggle="tooltip" title="Like us on FaceBook"><em class="lni lni-facebook-filled"></em></a></li>
+                        <li><a href="https://www.instagram.com/increative_web/" target="_blank" data-toggle="tooltip" title="Visit Instagram"><em class="lni lni-instagram"></em></a></li>
+                        <li><a href="https://www.linkedin.com/company/increativeweb" target="_blank" data-toggle="tooltip" title="Visit LinkedIn"><em class="icons icon-linkedin"></em></a></li>
+                        <li><a href="https://www.youtube.com/@InCreativeWeb" target="_blank" data-toggle="tooltip" title="Visit YouTube"><em class="lni lni-youtube"></em></a></li>
+                        <li><a href="https://calendly.com/increativeweb/zoom-meeting?month=2026-03" target="_blank" data-toggle="tooltip" title="Book a Meeting"><em class="lni lni-headphone-alt" ></em></a></li>
+                        <!-- <li><a href="https://join.skype.com/invite/b6mT8CUWL4va" target="_blank" title="Connect me on Skype (skype:jayesh2881?chat)"><em class="icons icon-skype"></em>Skype</a></li> -->
+                    </ul>
+                  </div>
+                </div>
+                <?php endif; ?>
               </div>
-              <?php endif; ?>
               <?php } ?>
+              </div>
             </div>
         </div>
         <div class="copyright">Copyright © <?php echo $year = date('Y'); ?> InCreativeWeb - Creative Thinking. All Rights Reserved.</div>

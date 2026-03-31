@@ -2,6 +2,9 @@ var $ = jQuery.noConflict();
 
 (function ($) {
   $(document).ready(function () {
+    if ($('[data-toggle=tooltip]').length) {
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    }
     "use strict";
 	  
     /* MENU TOGGLE */
@@ -623,3 +626,4 @@ function icw_cf7_labels() {
      });
   }
 }
+

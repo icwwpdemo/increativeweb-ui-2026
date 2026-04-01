@@ -1876,7 +1876,7 @@ a {
     letter-spacing: .01em;
     line-height: 1;
     text-decoration: none !important;
-    border-radius: 10px;
+    border-radius: 30px;
     transition: background 0.45s ease-out, border-color 0.3s, color 0.3s, padding 0.3s;
     box-sizing: border-box;
     box-shadow: none;
@@ -1944,6 +1944,29 @@ a {
             background-position: calc(100% + 1px) 0;
             color: #ffffff !important;
             border-color: $color-primary;
+            padding: 0 64px 0 32px;
+        }
+    }
+    &.--dark {
+        border: 1px solid $color-dark;
+        background: linear-gradient(90deg, #ffffff 50%, $color-dark 50%);
+        background-size: calc(200% + 4px) 100%;
+        background-position: -1.7857em 0;
+        background-repeat: no-repeat;
+
+        &::before {
+            filter: invert(1);
+        }
+
+        &::after {
+            background-color: $color-dark;
+        }
+
+        &:hover,
+        &:focus {
+            background-position: calc(100% + 1px) 0;
+            color: #ffffff !important;
+            border-color: $color-dark;
             padding: 0 64px 0 32px;
         }
     }
@@ -3679,7 +3702,7 @@ a {
         .testimonial-user {
             text-align: left;
             .name {
-                font-size: 50px;
+                font-size: 30px;
                 font-weight: 900;
                 letter-spacing: -0.8px;
                 margin-bottom: 15px;
@@ -3735,7 +3758,7 @@ a {
     }
     .info {
         color: $color-dark;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 500;
         line-height: 1.4;
         text-align: left;
@@ -7761,9 +7784,9 @@ table tr td {
             z-index: 1;
             flex: none;
             width: 4px;
-            height: calc(100% - 60px);
+            height: calc(100% - 54px);
             position: absolute;
-            top: 60px;
+            top: 54px;
             left: 34px;
             background: #fbfbfb;
             z-index: 1;
@@ -7777,7 +7800,7 @@ table tr td {
     }
 
     .step-counter {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 700;
         color: $color-dark;
         line-height: 1;
@@ -7787,11 +7810,11 @@ table tr td {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: -12px;
+        margin-top: -18px;
         background: #fbfbfb;
 
         @media (max-width: 992px) {
-            font-size: 24px;
+            font-size: 20px;
             width: 50px;
             height: 50px;
         }
@@ -7805,13 +7828,13 @@ table tr td {
         }
 
         h3 {
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 700;
             color: $color-dark;
             letter-spacing: -0.4px;
 
             @media (max-width: 992px) {
-                font-size: 24px;
+                font-size: 20px;
             }
         }
 

@@ -93,21 +93,30 @@ var $ = jQuery.noConflict();
 
   // New Hero SLIDER
   var swiperheroslider = new Swiper(".swiper-hero-slider", {
-      grabCursor: true,
-      effect: "creative",
-      creativeEffect: {
-        prev: {
-          shadow: true,
-          translate: [0, 0, -400],
-        },
-        next: {
-          translate: ["100%", 0, 0],
-        },
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    loop: true,
+
+    effect: "creative",
+    creativeEffect: {
+      limitProgress: 2,
+
+      prev: {
+        translate: [0, "-10%", -100],
+        scale: 0.95,
+        opacity: 1,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      }
+
+      next: {
+        translate: [0, 0, 0],
+        opacity: 0, // completely hide next slides
+      },
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    }
   });
   // SLIDER
   var mainslider = new Swiper('.hero-slider-main', {

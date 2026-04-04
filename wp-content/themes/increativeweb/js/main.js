@@ -8,10 +8,25 @@ var $ = jQuery.noConflict();
     "use strict";
 	  
     /* MENU TOGGLE */
-    $('.side-widget .site-menu ul li i').on('click', function (e) {
-      $(this).toggleClass('is-toggle');
-      $(this).parent().children('.side-widget .site-menu ul li ul').toggle();
-      return true;
+    if ($('li.menu-item-has-children').length) {
+        $("li.menu-item-has-children > a").after('<i class="arrow"></i>');
+    }
+    
+    $('li.menu-item-has-children .arrow').on('click',function(event){
+        event.preventDefault();
+        $(this).toggleClass('is-active');        
+        $(this).parent().find('.sub-menu').first().slideToggle(300);       
+    });
+    // $('.side-widget .site-menu ul li i').on('click', function (e) {
+    //   $(this).toggleClass('is-toggle');
+    //   $(this).parent().children('.side-widget .site-menu ul li ul').toggle();
+    //   return true;
+    // });
+
+    // HAMBURGER MENU
+    $('.hamburger-menu').on('click', function (e) {
+      $('.hamburger-menu').toggleClass('open');
+      $(".site-menu").toggleClass('active');
     });
 
 
@@ -40,11 +55,7 @@ var $ = jQuery.noConflict();
     });
 
 
-    // HAMBURGER MENU
-    $('.hamburger-menu').on('click', function (e) {
-      $('.hamburger-menu').toggleClass('open');
-      $(".side-widget").toggleClass('active');
-    });
+    
 
 
     // LOGO HOVER
@@ -498,11 +509,11 @@ var $ = jQuery.noConflict();
     // This is necessary so you never see what is "behind" the navbar.
     if (st > lastScrollTop && st > navbarHeight) {
       // Scroll Down
-      $('.navbar').removeClass('nav-down').addClass('nav-up');
+      $('.main-header').removeClass('nav-down').addClass('nav-up');
     } else {
       // Scroll Up
       if (st + $(window).height() < $(document).height()) {
-        $('.navbar').removeClass('nav-up').addClass('nav-down');
+        $('.main-header').removeClass('nav-up').addClass('nav-down');
       }
     }
 

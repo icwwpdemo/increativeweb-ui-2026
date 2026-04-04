@@ -48,80 +48,81 @@ class WPBakeryShortCode_icw_testimonials_slider extends WPBakeryShortCode {
 </div>
 <!-- <div class="testimonials-quote"><svg xmlns="http://www.w3.org/2000/svg" width="82.039" height="74.185" viewBox="0 0 82.039 74.185"><g transform="translate(82.039 74.185) rotate(180)"><path d="M34.91,14.547c-14.545,3.2-17.454,11.344-17.454,24.727H34.91V74.185H0V38.11C0,10.183,13.092.29,34.91,0Zm47.129,0c-14.546,3.2-17.456,11.344-17.456,24.727H82.039V74.185H47.129V38.11C47.129,10.183,60.219.29,82.039,0Z" fill="#f37d19"></path></g></svg></div> -->
 
-<div class="testimonials-slider <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>  
-  <div class="swiper-wrapper">
-      <?php
-      $new_testimonials_value = array();
-      foreach ( $details as $data ) {
-        $new_line = $data;
-        $new_line[ 'testimonial' ] = isset( $new_line[ 'testimonial' ] ) ? $new_line[ 'testimonial' ] : '';
-        $new_line[ 'name' ] = isset( $new_line[ 'name' ] ) ? $new_line[ 'name' ] : '';
-        $new_line[ 'jobtitle' ] = isset( $new_line[ 'jobtitle' ] ) ? $new_line[ 'jobtitle' ] : '';
-        $new_line[ 'country' ] = isset( $new_line[ 'country' ] ) ? $new_line[ 'country' ] : '';
-      $new_line[ 'image' ] = isset( $new_line[ 'image' ] ) ? $new_line[ 'image' ] : '';
 
-        $new_testimonials_value[] = $new_line;
-      }
+  <div class="testimonials-slider <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>  
+    <div class="swiper-wrapper">
+        <?php
+        $new_testimonials_value = array();
+        foreach ( $details as $data ) {
+          $new_line = $data;
+          $new_line[ 'testimonial' ] = isset( $new_line[ 'testimonial' ] ) ? $new_line[ 'testimonial' ] : '';
+          $new_line[ 'name' ] = isset( $new_line[ 'name' ] ) ? $new_line[ 'name' ] : '';
+          $new_line[ 'jobtitle' ] = isset( $new_line[ 'jobtitle' ] ) ? $new_line[ 'jobtitle' ] : '';
+          $new_line[ 'country' ] = isset( $new_line[ 'country' ] ) ? $new_line[ 'country' ] : '';
+        $new_line[ 'image' ] = isset( $new_line[ 'image' ] ) ? $new_line[ 'image' ] : '';
 
-      $idd = 0;
-      foreach ( $new_testimonials_value as $testimonial ):
-        $idd++;
-        $images = wp_get_attachment_image_src( $testimonial[ 'image' ], '' );
-
-        $client_img = get_template_directory_uri() . '/images/no-client.svg';
-        if(!empty($images)){
-          $client_img = $images[0];
-        } else {
-          $client_img = get_template_directory_uri() . '/images/no-client.svg';
+          $new_testimonials_value[] = $new_line;
         }
-      ?>
-      <div class="swiper-slide">
-        <div class="testimonial">
-          <div class="testimonial-info">
-            <div class="testimonial-user">
-              <?php 
-                if($testimonial['name']) { 
-                  echo '<div class="name">'.$testimonial['name'].'</div>';
-                } 
-                if($testimonial['country']) { 
-                  echo '<small class="country">'.$testimonial['country'].'</small>';
-                }
-                if($testimonial['jobtitle']) { 
-                  echo '<small>'.$testimonial['jobtitle'].'</small>';
-                }
-              ?>
+
+        $idd = 0;
+        foreach ( $new_testimonials_value as $testimonial ):
+          $idd++;
+          $images = wp_get_attachment_image_src( $testimonial[ 'image' ], '' );
+
+          $client_img = get_template_directory_uri() . '/images/no-client.svg';
+          if(!empty($images)){
+            $client_img = $images[0];
+          } else {
+            $client_img = get_template_directory_uri() . '/images/no-client.svg';
+          }
+        ?>
+        <div class="swiper-slide">
+          <div class="testimonial">
+            <div class="testimonial-info">
+              <div class="testimonial-user">
+                <?php 
+                  if($testimonial['name']) { 
+                    echo '<div class="name">'.$testimonial['name'].'</div>';
+                  } 
+                  if($testimonial['country']) { 
+                    echo '<small class="country">'.$testimonial['country'].'</small>';
+                  }
+                  if($testimonial['jobtitle']) { 
+                    echo '<small>'.$testimonial['jobtitle'].'</small>';
+                  }
+                ?>
+              </div>
+              <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url($client_img);?>" alt="<?php echo esc_attr($testimonial['jobtitle']);?>"></figure>
             </div>
-            <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url($client_img);?>" alt="<?php echo esc_attr($testimonial['jobtitle']);?>"></figure>
-          </div>
-            <div class="content">
-              <?php if($testimonial['testimonial']) { 
-                
-                 echo '<div class="img-quote">
-                  <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke-linejoin="miter" fill="rgb(230, 230, 231)" d="M9.16682 34.6422C7.10632 32.455 6 30 6 26.0208C6 19.0218 10.913 12.7474 18.0612 9.64648L19.8466 12.4017C13.1761 16.0109 11.8724 20.6922 11.3513 23.6442C12.4253 23.0888 13.8312 22.8934 15.2094 23.0212C18.8182 23.3556 21.6624 26.3182 21.6624 30C21.6624 33.866 18.5283 37 14.6623 37C12.5162 37 10.4639 36.0192 9.16682 34.6422ZM29.1668 34.6422C27.1064 32.455 26 30 26 26.0208C26 19.0218 30.913 12.7474 38.0612 9.64648L39.8466 12.4017C33.176 16.0109 31.8724 20.6922 31.3512 23.6442C32.4252 23.0888 33.8312 22.8934 35.2094 23.0212C38.8182 23.3556 41.6624 26.3182 41.6624 30C41.6624 33.866 38.5284 37 34.6624 37C32.5162 37 30.464 36.0192 29.1668 34.6422Z"></path> </svg>
-                </div>
-                <div class="info">'.$testimonial['testimonial'].'</div>';
-              }
-               ?>
+              <div class="content">
+                <?php if($testimonial['testimonial']) { 
+                  
+                  echo '<div class="img-quote">
+                    <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path stroke-linejoin="miter" fill="rgb(230, 230, 231)" d="M9.16682 34.6422C7.10632 32.455 6 30 6 26.0208C6 19.0218 10.913 12.7474 18.0612 9.64648L19.8466 12.4017C13.1761 16.0109 11.8724 20.6922 11.3513 23.6442C12.4253 23.0888 13.8312 22.8934 15.2094 23.0212C18.8182 23.3556 21.6624 26.3182 21.6624 30C21.6624 33.866 18.5283 37 14.6623 37C12.5162 37 10.4639 36.0192 9.16682 34.6422ZM29.1668 34.6422C27.1064 32.455 26 30 26 26.0208C26 19.0218 30.913 12.7474 38.0612 9.64648L39.8466 12.4017C33.176 16.0109 31.8724 20.6922 31.3512 23.6442C32.4252 23.0888 33.8312 22.8934 35.2094 23.0212C38.8182 23.3556 41.6624 26.3182 41.6624 30C41.6624 33.866 38.5284 37 34.6624 37C32.5162 37 30.464 36.0192 29.1668 34.6422Z"></path> </svg>
+                  </div>
+                  <div class="info">'.$testimonial['testimonial'].'</div>';
+                }
+                ?>
+            </div>
           </div>
         </div>
-      </div>
-      <?php
-      endforeach;
-      wp_reset_query();
-      ?>
-  </div>
-
-<?php
-  if( $control == 'show' ) { ?>
-    <div class="controls">
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+        <?php
+        endforeach;
+        wp_reset_query();
+        ?>
     </div>
-    <?php } ?>
-    <?php /* if( $control == 'hide' ) { ?> 
-      <?php } */ ?>
-</div>
+
+  <?php
+    if( $control == 'show' ) { ?>
+      <div class="controls">
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <?php } ?>
+      <?php /* if( $control == 'hide' ) { ?> 
+        <?php } */ ?>
+  </div>
 </div>
 <?php
 return ob_get_clean();

@@ -12,6 +12,7 @@ class WPBakeryShortCode_icw_icon_box extends WPBakeryShortCode {
       'icon' => '',
       'description' => '',
       'link' => '',
+      'extra_class' => '',
       'animate_block' => 'false',
       'animation_type' => 'fadeIn',
       'animation_delay' => '',
@@ -45,7 +46,7 @@ class WPBakeryShortCode_icw_icon_box extends WPBakeryShortCode {
         $a_target = strlen( $link['target'] ) > 0 ? $link['target'] : '_self';
     }
     ?>
-<div class="icon-box <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
+<div class="icon-box <?php echo esc_attr( $extra_class ); ?> <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
   <figure><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( get_the_title( $icon ) ); ?>"></figure><div class="box-body">
   <?php 
   if(!empty($title)) {
@@ -102,7 +103,13 @@ vc_map( array(
       'description' => esc_html__( 'Add link to button.', 'ICWTHEME' ),
       "group" => 'General',
     ),
-	  
+	  array(
+      "type" => "textfield",
+      "heading" => __( 'Extra Class', 'ICWTHEME' ),
+      "param_name" => "extra_class",
+      "group" => 'General',
+      'admin_label' => true
+    ),
     array(
       "type" => "dropdown",
       "heading" => __( 'Animate', 'ICWTHEME' ),

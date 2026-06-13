@@ -10,7 +10,7 @@ class WPBakeryShortCode_icw_logos extends WPBakeryShortCode {
     extract( shortcode_atts( array(
       'brand_logos' => '',
       'extra_class' => '',
-      'iftitle' => 'show',
+      'title' => 'show',
       'animate_block' => 'false',
       'animation_type' => 'fadeIn',
       'animation_delay' => '',
@@ -50,7 +50,7 @@ class WPBakeryShortCode_icw_logos extends WPBakeryShortCode {
                 //     $html .='<div class="brand-logo"><a href="'.$attachment_content['description'].'" title="'.$attachment_content['caption'].'" target="_blank"><img src="'.$images[0].'" alt="'.$image_alt.'"></a></div>';
                 // } else {
                     $html .='<div class="swiper-slide"><div class="brand-logo" data-toggle="tooltip" title="'.esc_attr( $image_alt ).'"><img class="icw-lazy" src="'.esc_url(lazyloading).'" data-src="'.$images[0].'" alt="'.$image_alt.'"></div>';
-                    if( $iftitle == 'show' ) {
+                    if( $title == 'show' ) {
                       $html .='<h3>'.esc_attr( $image_alt ).'</h3>';
                     }
                     $html .='</div>';

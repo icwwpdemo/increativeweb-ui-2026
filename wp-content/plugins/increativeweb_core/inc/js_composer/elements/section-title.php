@@ -11,6 +11,7 @@ class WPBakeryShortCode_icw_section_title extends WPBakeryShortCode {
       'spacing' => '',
       'color' => 'dark',
       'tagline' => '',
+      'title_tag' => 'h1',
       'title' => '',
       'description' => '',
       'animate_block' => 'false',
@@ -29,13 +30,14 @@ class WPBakeryShortCode_icw_section_title extends WPBakeryShortCode {
 
     $wrapper_class = implode( ' ', $wrapper_class );
     $content = wpb_js_remove_wpautop($content, true); // fix unclosed/unwanted paragraph tags in $content
+    // echo $title_tag;
     ?>
 <div class="section-title <?php if( $spacing == 'no-spacing' ) { ?> no-spacing <?php } ?> <?php if( $color == 'light' ) { ?> light <?php } ?>">
   <?php if( $tagline ) { ?>
   <span class="tagline"><?php echo esc_html( $tagline ); ?></span>
   <?php } ?>
   <?php if( $title ) { ?>
-  <h2><?php echo wp_kses_post( $title ); ?></h2>
+  <?php if( $title_tag == 'h2' ) { ?> <h2> <?php } else{ ?> <h1> <?php } ?><?php echo wp_kses_post( $title ); ?><?php if( $title_tag == 'h2' ) { ?> </h2> <?php } else{ ?> </h1> <?php } ?>
   <?php } ?>
   <?php if( $description ) { ?>
   <div class="info"><?php echo wp_kses_post( $description ); ?></div>
@@ -87,6 +89,17 @@ vc_map( array(
       "param_name" => "tagline",
       "group" => 'General',
       'admin_label' => true
+    ),
+    array(
+      "type" => "dropdown",
+      "heading" => __( 'Title Tag', 'ICWTHEME' ),
+      "param_name" => "title_tag",
+      "group" => 'General',
+      "value" => array(
+        "H1" => 'h1',
+        "H2" => 'h2',
+
+      )
     ),
     array(
       "type" => "textfield",

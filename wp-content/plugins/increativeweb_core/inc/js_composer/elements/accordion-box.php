@@ -62,7 +62,7 @@ class WPBakeryShortCode_icw_accordion extends WPBakeryShortCode {
     $expanded = ($idd == 1 ? esc_attr('true') : esc_attr('false') );
   ?>
   <div class="card">
-    <h3 class="card-header" role="tab"><a data-toggle="collapse" href="#collapse<?php echo esc_attr( $idd ); ?>" aria-expanded="<?php echo $expanded; ?>" ><?php echo esc_html($accordion['title']);?> <i class="lni lni-plus"></i></a></h3>
+    <h3 class="card-header" role="tab"><a data-toggle="collapse" href="#collapse<?php echo esc_attr( $idd ); ?>" aria-expanded="<?php echo $expanded; ?>" ><?php echo esc_html($accordion['title']);?> <i class="lni lni-arrow-top-right"></i></a></h3>
     <div id="collapse<?php echo esc_attr( $idd ); ?>" class="collapse" data-parent="#accordion">
       <div class="card-body"> <?php echo $accordion['description'];?></div>
       <!-- end card-body --> 

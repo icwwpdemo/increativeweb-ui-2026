@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-6 mb-4">
+<div class="col-lg-6 col-md-1 mb-4">
   <div class="recent-news with-shadow">
   <figure class="post-image"><img loading="lazy" src="<?php echo esc_url(lazyloading); ?>" srcset="<?php echo esc_url( icw_get_post_thumbnail_url() ); ?>" alt="<?php the_title_attribute(); ?>"></figure>
     <div class="content"><small> <?php echo date( ' jS F, Y', strtotime( get_the_date() ) );?></small>

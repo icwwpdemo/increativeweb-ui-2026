@@ -58,11 +58,11 @@ $body-color         : #1d1d1f;
 	transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 	-webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1)}
 
-@mixin transition{-webkit-transition: all .35s ease-in-out;
-	-moz-transition: all .35s ease-in-out; 
-	-ms-transition: all .35s ease-in-out; 
-	-o-transition: all .35s ease-in-out; 
-	transition: all .35s ease-in-out;}
+@mixin transition{-webkit-transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out; 
+	-ms-transition: all .25s ease-in-out; 
+	-o-transition: all .25s ease-in-out; 
+	transition: all .25s ease-in-out;}
 
 @mixin border-radius($radius) {
     border-radius: $radius;

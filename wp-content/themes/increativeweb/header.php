@@ -1,5 +1,8 @@
 <!doctype html><html lang="en"><head><meta name="theme-color" content="#0f8ed6"><meta charset="utf-8"><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <?php wp_head(); ?>
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+<link href="//fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
 <?php if(icw_get_option( 'before_head')) echo icw_get_option( 'before_head');?>
 </head>
 <body <?php body_class(); ?>>

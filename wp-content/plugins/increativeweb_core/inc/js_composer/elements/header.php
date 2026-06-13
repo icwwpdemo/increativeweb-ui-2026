@@ -69,7 +69,7 @@ class WPBakeryShortCode_icw_hero_slider extends WPBakeryShortCode {
             <?php
                 if ( !empty(get_sub_field( 'title' )) ) {
                   if($j == 1) {
-                    echo '<h1 class="h2">'.get_sub_field( 'title' ).'</h1>';
+                    echo '<h2 class="h2">'.get_sub_field( 'title' ).'</h2>';
                   } else {
                     echo '<h2 class="h2">'.get_sub_field( 'title' ).'</h2>';
                   }

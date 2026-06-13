@@ -62,7 +62,7 @@ class WPBakeryShortCode_icw_side_content extends WPBakeryShortCode {
       echo '<div class="info">'. $content . '</div>';
     }
     if(!empty($a_href)) {
-      echo '<p class="mt-4"><a class="icw-btn" title="'.esc_attr($a_title ).'" target="'.esc_attr( $a_target ).'" href="'.esc_url($a_href).'">'.esc_attr($a_title ).'</a></p>';
+      echo '<p class="mt-4 mb-0"><a class="icw-btn --primary" title="'.esc_attr($a_title ).'" target="'.esc_attr( $a_target ).'" href="'.esc_url($a_href).'">'.esc_attr($a_title ).'</a></p>';
     }
   /*if( $icon != '' ) { ?>
   <figure> <img src="<?php echo esc_url( $icon_url ); ?>" alt="<?php echo esc_attr( $name ); ?>"> </figure>

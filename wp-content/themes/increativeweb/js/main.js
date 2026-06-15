@@ -107,6 +107,10 @@ var $ = jQuery.noConflict();
 		grabCursor: true,
 		centeredSlides: true,
 		slidesPerView: 1,
+		autoplay: {
+			delay: 6000,
+			disableOnInteraction: false,
+		},
 		loop: true,
 
 		effect: "creative",

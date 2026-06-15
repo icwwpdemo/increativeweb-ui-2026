@@ -32,7 +32,7 @@
 }
 
 $bodyfont: 'Satoshi',sans-serif;
-$font-h: 'Satoshi',sans-serif;
+$font-h: "Bricolage Grotesque", sans-serif;
 // $bodyfontsize	    : 17px;
 // $bodyfontcolor		:#000;
 // $bodybg		        :#f7f7f7;
@@ -45,7 +45,7 @@ $font-h: 'Satoshi',sans-serif;
 $color-primary      : #0693e3;
 $color-secondary    : #fee13e;
 $color-dark         : #212539;
-$body-color         : #1d1d1f;
+$body-color         : #000000;
 
 
 @mixin font-smoothing{-webkit-font-smoothing: antialiased; 

@@ -122,7 +122,7 @@ if ( icw_get_option( 'enable_page_transition' ) ): ?>
 			<div class="search-button"><i class="lni lni-search-alt"></i></div>
 			<?php endif; */ ?>
 			<?php if ( icw_get_option( 'enable_navbar_button' ) ): ?>
-				<div class="navbar-button"> <a class="icw-btn --primary" href="<?php echo esc_url( icw_get_option( 'navbar_button_url' ) ); ?>">
+				<div class="navbar-button"> <a class="icw-btn --btn-sm --primary" href="<?php echo esc_url( icw_get_option( 'navbar_button_url' ) ); ?>">
 			<?php echo esc_html( icw_get_option( 'navbar_button_label' ) ); ?><span class="arrow"></span>
 			<?php if ( icw_get_option( 'navbar_button_icon' ) ):?>
 				<img src="<?php echo esc_url( icw_get_option( 'navbar_button_icon' ) ); ?>" alt="<?php echo esc_attr( icw_get_option( 'navbar_button_label' ) ); ?>">

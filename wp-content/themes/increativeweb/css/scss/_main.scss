@@ -12,7 +12,7 @@ body {
     color: $body-color;
     font-family: $bodyfont;
     line-height: 1.5;
-    font-size: clamp(18px, 2vw, 20px);
+    font-size: clamp(16px, 2vw, 18px);
     @include font-smoothing;
     background: #fbfbfb;
     scrollbar-width: thin;
@@ -603,7 +603,7 @@ a {
     display: block;
     border-top: 5px solid $color-secondary;
     padding-top: 15px;
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 18px);
     font-weight: 800;
 }
 
@@ -640,7 +640,6 @@ a {
         margin: 0 0 30px;
         font-weight: 600;
         font-size: clamp(24px, 4vw, 40px);
-        letter-spacing: -0.4px;
     }
 
     .info {
@@ -648,9 +647,8 @@ a {
         display: block;
         margin-top: 0px;
         margin-bottom: 30px;
-        font-size: clamp(16px, 2vw, 20px);
-        color: #6e6e73;
-        letter-spacing: -0.2px;
+        font-size: clamp(16px, 2vw, 18px);
+        color: #2e2e2e;
 
         @media (max-width: 992px) {
             margin-top: 0px;
@@ -708,7 +706,7 @@ a {
             line-height: 26px;
             padding: 0;
             padding-top: 15px;    
-            color: #6e6e73;
+            color: #2e2e2e;
             font-size: 16px;
             ul {
                 li {
@@ -1544,7 +1542,6 @@ a {
     min-height: 50px;
     font-size: 14px;
     font-weight: 600;
-    letter-spacing: .01em;
     line-height: 1;
     text-decoration: none !important;
     border-radius: 30px;
@@ -2285,8 +2282,7 @@ a {
             width: 100%;
             display: block;
             margin: 0;
-            color: #6e6e73;
-            letter-spacing: -0.2px;
+            color: #2e2e2e;
             font-size: clamp(18px, 2vw, 24px);
             max-width: 700px;
         }
@@ -2602,9 +2598,8 @@ a {
         display: block;
         margin-top: 20px;
         margin-bottom: 30px;
-        font-size: clamp(18px, 2vw, 20px);
-        color: #6e6e73;
-        letter-spacing: -0.2px;
+        font-size: clamp(16px, 2vw, 18px);
+        color: #2e2e2e;
 
         @media (max-width: 992px) {
             margin-top: 10px;
@@ -2840,7 +2835,7 @@ a {
 
     h3 {
         font-weight: 500;
-        font-size: clamp(18px, 2vw, 20px);
+        font-size: clamp(18px, 2vw, 22px);
         color: $color-dark;
 
         a {
@@ -2861,7 +2856,7 @@ a {
 
     .info {
         font-weight: 400;
-        color: #6e6e73;
+        color: #2e2e2e;
         line-height: 1.5;
     }
 
@@ -3090,7 +3085,7 @@ a {
         display: block;
         margin: 5px 0 0;
         font-size: 18px;
-        color: #6e6e73;
+        color: #2e2e2e;
         font-weight: 500;
     }
 }
@@ -3434,7 +3429,6 @@ a {
     margin: 0px auto;
     padding: 0px 0px 65px;
     position: relative;
-    box-shadow: 0px 0px 5px 0px #e6e6e7;
     background-color: #fff;
     border-radius: 20px;
 
@@ -3496,7 +3490,7 @@ a {
                 }
                 &.country {
                     font-size: 16px;
-                    color: #6e6e73;
+                    color: #2e2e2e;
                     line-height: 1;
                     margin-bottom: 5px;
                     @media (max-width: 767px) { 
@@ -3605,7 +3599,7 @@ a {
         padding: 10px 0;
     }
     .brand-logo {
-        box-shadow: 0px 0px 5px 0px #e6e6e7;
+        border: 1px solid rgba(229, 229, 229, 0.5);
         will-change: transform;
         background-color: #fff;
         border-radius: 20px;
@@ -3758,8 +3752,8 @@ a {
     .info {
         width: 100%;
         display: block;
-        font-size: clamp(18px, 2vw, 20px);
-        color: #6e6e73;
+        font-size: clamp(16px, 2vw, 18px);
+        color: #2e2e2e;
         letter-spacing: -0.2px;
         margin-bottom: 30px;
         margin-top: 0px;
@@ -3875,7 +3869,7 @@ a {
             width: 100%;
             display: block;
             font-size: 14px;
-            color: #6e6e73;
+            color: #2e2e2e;
             line-height: 1.5;
             margin-top: 10px;
         }
@@ -4193,7 +4187,7 @@ a {
                 display: block;
                 font-weight: 600;
                 margin-bottom: 20px;
-                font-size: 36px;
+                font-size: clamp(20px, 4vw, 36px);
             }
 
             .info {
@@ -4453,7 +4447,7 @@ a {
             .date {
                 width: 100%;
                 display: block;
-                color: #6e6e73;
+                color: #2e2e2e;
                 font-size: 14px;
                 font-weight: 500;
             }
@@ -7385,12 +7379,13 @@ table tr td {
     align-items: flex-start;
     gap: 20px;
     position: relative;
-
+    margin-bottom: 50px;
     @media (max-width: 767px) {
         flex-wrap: wrap;
     }
 
     &:last-child {
+        margin-bottom: 0px;
         .step-image {
             padding-bottom: 0;
         }
@@ -7416,7 +7411,7 @@ table tr td {
     }
 
     .step-counter {
-        font-size: 30px;
+        font-size: clamp(20px, 4vw, 30px);
         font-weight: 700;
         color: $color-dark;
         line-height: 1;
@@ -7430,8 +7425,6 @@ table tr td {
         background: #fbfbfb;
 
         @media (max-width: 992px) {
-            font-size: 20px;
-            width: 50px;
             height: 50px;
         }
     }
@@ -7444,25 +7437,16 @@ table tr td {
         }
 
         h3 {
-            font-size: 30px;
+            font-size: clamp(20px, 4vw, 30px);
             font-weight: 700;
             color: $color-dark;
             letter-spacing: -0.4px;
-
-            @media (max-width: 992px) {
-                font-size: 20px;
-            }
         }
 
         .info {
-            font-size: 22px;
-            font-weight: 500;
-            color: #6e6e73;
+            font-size: clamp(16px, 2vw, 18px);
+            color: #2e2e2e;
             line-height: 1.3;
-
-            @media (max-width: 992px) {
-                font-size: 18px;
-            }
         }
     }
 
@@ -7600,7 +7584,6 @@ table tr td {
                         display: block;
                         font-weight: 500;
                         font-size: 40px;
-                        letter-spacing: -0.04em;
                         margin-bottom: 20px;
                         @media (max-width: 1200px) {
                             font-size: 30px;

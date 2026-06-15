@@ -2811,7 +2811,9 @@ a {
         flex-direction: column;
         // max-width: 400px;
     }
-
+    @media (max-width: 767px) {
+        gap: 15px;
+    }
     figure {
         width: max-content;
         display: block;
@@ -2840,7 +2842,7 @@ a {
 
     h3 {
         font-weight: 500;
-        font-size: 20px;
+        font-size: clamp(18px, 2vw, 20px);
         color: $color-dark;
 
         a {
@@ -2907,6 +2909,9 @@ a {
         .box-body {
             h3 {
                 margin-bottom: 0;
+            }
+            @media (max-width: 1200px) and (min-width: 767px) { 
+                text-align: center;
             }
         }
     }
@@ -3817,6 +3822,11 @@ a {
 .info-card-row .vc_col-sm-6.vc_col-md-3:nth-child(3) .card-info {
     @media (max-width: 992px) and (min-width: 767px) {
         margin-top: 20px !important;
+    }
+}
+.info-card-row .vc_col-sm-6.vc_col-md-3.sm-mt-0:nth-child(3) .card-info {
+    @media (max-width: 992px) and (min-width: 767px) {
+        margin-top: 0px !important;
     }
 }
 

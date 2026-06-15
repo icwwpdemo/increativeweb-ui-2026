@@ -380,6 +380,11 @@ class Settings_Sanitization {
                 $options['redirect_after_logout_for'][$role_slug] = ( 'on' == $options['redirect_after_logout_for'][$role_slug] ? true : false );
             }
         }
+        // Disable User Account
+        if ( !isset( $options['disable_user_account'] ) ) {
+            $options['disable_user_account'] = false;
+        }
+        $options['disable_user_account'] = ( 'on' == $options['disable_user_account'] ? true : false );
         // Last Login Column
         if ( !isset( $options['enable_last_login_column'] ) ) {
             $options['enable_last_login_column'] = false;
@@ -527,11 +532,17 @@ class Settings_Sanitization {
         if ( is_array( $asenha_public_post_types ) ) {
             foreach ( $asenha_public_post_types as $post_type_slug => $post_type_label ) {
                 // e.g. $post_type_slug is post, $post_type_label is Posts
+                if ( 'kt_gallery' === $post_type_slug ) {
+                    continue;
+                }
                 if ( !isset( $options['disable_comments_for'][$post_type_slug] ) ) {
                     $options['disable_comments_for'][$post_type_slug] = false;
                 }
                 $options['disable_comments_for'][$post_type_slug] = ( 'on' == $options['disable_comments_for'][$post_type_slug] ? true : false );
             }
+        }
+        if ( isset( $options['disable_comments_for']['kt_gallery'] ) ) {
+            unset($options['disable_comments_for']['kt_gallery']);
         }
         // Disable REST API
         if ( !isset( $options['disable_rest_api'] ) ) {
@@ -622,6 +633,14 @@ class Settings_Sanitization {
             $options['disable_plugin_theme_editor'] = false;
         }
         $options['disable_plugin_theme_editor'] = ( 'on' == $options['disable_plugin_theme_editor'] ? true : false );
+        if ( !isset( $options['disable_user_email_notification_after_password_change'] ) ) {
+            $options['disable_user_email_notification_after_password_change'] = false;
+        }
+        $options['disable_user_email_notification_after_password_change'] = ( 'on' == $options['disable_user_email_notification_after_password_change'] ? true : false );
+        if ( !isset( $options['disable_admin_email_notification_after_password_change'] ) ) {
+            $options['disable_admin_email_notification_after_password_change'] = false;
+        }
+        $options['disable_admin_email_notification_after_password_change'] = ( 'on' == $options['disable_admin_email_notification_after_password_change'] ? true : false );
         // =================================================================
         // SECURITY
         // =================================================================
@@ -660,6 +679,10 @@ class Settings_Sanitization {
             $options['obfuscate_email_address'] = false;
         }
         $options['obfuscate_email_address'] = ( 'on' == $options['obfuscate_email_address'] ? true : false );
+        if ( !isset( $options['obfuscate_email_address_builder_safe_mode'] ) ) {
+            $options['obfuscate_email_address_builder_safe_mode'] = false;
+        }
+        $options['obfuscate_email_address_builder_safe_mode'] = ( 'on' == $options['obfuscate_email_address_builder_safe_mode'] ? true : false );
         // Disable XML-RPC
         if ( !isset( $options['disable_xmlrpc'] ) ) {
             $options['disable_xmlrpc'] = false;
@@ -725,9 +748,6 @@ class Settings_Sanitization {
             $options['heartbeat_interval_for_frontend'] = 60;
         }
         $options['heartbeat_interval_for_frontend'] = ( !empty( $options['heartbeat_interval_for_frontend'] ) ? sanitize_text_field( $options['heartbeat_interval_for_frontend'] ) : 60 );
-        // =================================================================
-        // UTILITIES
-        // =================================================================
         // SMTP Email Delivery
         if ( !isset( $options['smtp_email_delivery'] ) ) {
             $options['smtp_email_delivery'] = false;

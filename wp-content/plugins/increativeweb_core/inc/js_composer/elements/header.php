@@ -87,8 +87,8 @@ class WPBakeryShortCode_icw_hero_slider extends WPBakeryShortCode {
         </div>
       <?php $j++; endwhile; ?>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button swiper-button-next"></div>
+    <div class="swiper-button swiper-button-prev"></div>
   </div>
   <!-- <div class="container">
     <div class="swiper-container hero-slider-content">

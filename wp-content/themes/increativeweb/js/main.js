@@ -346,17 +346,34 @@ var $ = jQuery.noConflict();
 	});
 
 	if ($('.client-slider').length) {
-		var logoSwiper = new Swiper(".client-slider", {
-			slidesPerView: "auto",
-			spaceBetween: 20,
-			loop: true,
-			speed: 5000,
-			allowTouchMove: true,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false,
-				pauseOnMouseEnter: true,
-			}
+		$('.is-client-slider-default').each(function () {
+			var logoSwiper = new Swiper(".is-client-slider-default", {
+				slidesPerView: "auto",
+				spaceBetween: 20,
+				loop: true,
+				speed: 5000,
+				allowTouchMove: true,
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+				}
+			});
+		});
+		$('.is-client-slider-reverse').each(function () {
+			var logoSwiper = new Swiper(".is-client-slider-reverse", {
+				slidesPerView: "auto",
+				spaceBetween: 20,
+				loop: true,
+				speed: 5000,
+				allowTouchMove: true,
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+					reverseDirection: true
+				}
+			});
 		});
 	}
 	if ($('.brand-logos-slider').length) {
@@ -369,17 +386,14 @@ var $ = jQuery.noConflict();
 				loop: true,
 				speed: 3000,
 				allowTouchMove: true,
-
 				autoplay: {
-					delay: 1,
+					delay: 0,
 					disableOnInteraction: false,
 					pauseOnMouseEnter: true,
 				}
 			});
 
 		});
-	}
-	if ($('.brand-logos-slider').length) {
 
 		$('.is-logos-slider-reverse').each(function () {
 
@@ -390,7 +404,7 @@ var $ = jQuery.noConflict();
 				speed: 3000,
 				allowTouchMove: true,
 				autoplay: {
-					delay: 1,
+					delay: 0,
 					disableOnInteraction: false,
 					pauseOnMouseEnter: true,
 					reverseDirection: true
@@ -570,9 +584,9 @@ var $ = jQuery.noConflict();
 
 
 	// PRELOADER
-	$(window).load(function () {
-		$("body").addClass("page-loaded");
-	});
+	// $(window).load(function () {
+	// 	$("body").addClass("page-loaded");
+	// });
 
 
 	// ICW CURSOR
@@ -639,8 +653,10 @@ var $ = jQuery.noConflict();
 	});
 
 })(jQuery);
-var copy = document.querySelector(".logos-slide").cloneNode(true);
-document.querySelector(".logos").appendChild(copy);
+if (document.querySelector(".logos-slide") && document.querySelector(".logos")) {
+    var copy = document.querySelector(".logos-slide").cloneNode(true);
+    document.querySelector(".logos").appendChild(copy);
+}
 
 function icw_cf7_labels() {
 	var input = $('.form-control');
@@ -670,3 +686,21 @@ function icw_cf7_labels() {
 	}
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('.footer-wrapper');
+    function updateFooterExpand() {
+        const rect = footer.getBoundingClientRect();
+        const vh = window.innerHeight;
+        // Start when footer enters viewport
+        const start = vh;
+        // Finish when footer reaches 40% viewport height
+        const end = vh * 0.4;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.max(0, Math.min(1, progress));
+        footer.style.setProperty('--expand', progress);
+    }
+    updateFooterExpand();
+    window.addEventListener('scroll', updateFooterExpand);
+    window.addEventListener('resize', updateFooterExpand);
+});

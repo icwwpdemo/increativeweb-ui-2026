@@ -99,16 +99,19 @@ $wrapper_class = array();
         ?>
         <?php if($accordion['image']){ ?>
           <div class="step-content-box"> 
-            <?php if($accordion['value']) { ?>
-              <div class="step-counter"><?php echo esc_html($accordion['value']);?></div>
-              <?php } ?>
+           
               <div class="step-info">
-                <?php if($accordion['title']) { ?>
-                <h3><?php echo esc_html($accordion['title']);?></h3>
+                <?php if($accordion['value']) { ?>
+                  <div class="step-counter"><?php echo esc_html($accordion['value']);?></div>
                 <?php } ?>
-                <?php if($accordion['description']) { ?>
-                <div class="info"><?php echo esc_attr($accordion['description']);?></div>
-                <?php } ?>
+                <div class="step-content">
+                  <?php if($accordion['title']) { ?>
+                  <h3><?php echo esc_html($accordion['title']);?></h3>
+                  <?php } ?>
+                  <?php if($accordion['description']) { ?>
+                  <div class="info"><?php echo esc_attr($accordion['description']);?></div>
+                  <?php } ?>
+                </div>
               </div>
                 <div class="step-image">
                   <figure class="position-relative"><img src="<?php echo esc_url($images[0]);?>" alt="<?php echo esc_attr($accordion['title']);?>"></figure>

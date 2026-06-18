@@ -1,8 +1,8 @@
-<div class="col-lg-6 col-md-1 mb-4">
+<div class="col-lg-4 col-md-2 mb-4">
   <div class="recent-news with-shadow">
   <figure class="post-image"><img loading="lazy" src="<?php echo esc_url(lazyloading); ?>" srcset="<?php echo esc_url( icw_get_post_thumbnail_url() ); ?>" alt="<?php the_title_attribute(); ?>"></figure>
     <div class="content"><small> <?php echo date( ' jS F, Y', strtotime( get_the_date() ) );?></small>
-      <h2 class="h2"><a class="stretched-link" href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h2>
+      <h2 class="h3"><a class="stretched-link" href="<?php echo get_permalink() ?>"><?php the_title(); ?></a></h2>
       <?php icw_posted_by(); ?>
     </div>
   </div>

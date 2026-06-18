@@ -116,8 +116,8 @@ class WPBakeryShortCode_icw_testimonials_slider extends WPBakeryShortCode {
     if( $control == 'show' ) { ?>
       <div class="controls">
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button swiper-button-next"></div>
+        <div class="swiper-button swiper-button-prev"></div>
       </div>
       <?php } ?>
       <?php /* if( $control == 'hide' ) { ?> 

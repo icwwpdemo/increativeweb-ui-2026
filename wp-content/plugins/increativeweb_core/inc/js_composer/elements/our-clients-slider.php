@@ -15,6 +15,7 @@ class WPBakeryShortCode_icw_clients_slider extends WPBakeryShortCode {
       'details' => '',
       'image' => '',
       'link' => '',
+      'extra_class' => '',
       'animate_block' => 'false',
       'animation_type' => 'fadeIn',
       'animation_delay' => '',
@@ -46,7 +47,7 @@ class WPBakeryShortCode_icw_clients_slider extends WPBakeryShortCode {
 <h2><?php echo wp_kses_post( $title ); ?></h2>
 <?php } ?> 
 
-<div class="client-slider <?php echo esc_attr( $wrapper_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
+<div class="client-slider <?php echo esc_attr( $wrapper_class ); ?> <?php echo esc_attr( $extra_class ); ?>" <?php if( $animate_block == 'yes' && $animation_delay != '' ) { echo 'data-wow-delay="' . esc_attr( $animation_delay ) . '"'; } ?>>
   <div class="swiper-wrapper">
     <?php
     $new_clients_value = array();
@@ -210,6 +211,15 @@ vc_map( array(
 
 
       )
+    ),
+    array(
+      "type" => "textfield",
+      "holder" => "div",
+      "class" => "",
+      "heading" => __( "Extra Class", 'ICWTHEME' ),
+      "param_name" => "extra_class",
+      "value" => "",
+      'admin_label' => true
     ),
     array(
       "type" => "dropdown",

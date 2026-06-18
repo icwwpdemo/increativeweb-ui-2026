@@ -84,9 +84,9 @@ class WPBakeryShortCode_icw_image_slider extends WPBakeryShortCode {
                   wp_reset_query(); ?>
         </div>
         <!-- end swiper-wrapper -->
-        <div class="swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button swiper-button-prev"><i class="fas fa-chevron-left"></i></div>
                 <!-- end button-prev -->
-                <div class="swiper-button-next"><i class="fas fa-chevron-right"></i></div>
+                <div class="swiper-button swiper-button-next"><i class="fas fa-chevron-right"></i></div>
                 <!-- end button-next --> 
       </div>
       <!-- end content-slider -->

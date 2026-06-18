@@ -65,9 +65,9 @@ class WPBakeryShortCode_icw_office_slider extends WPBakeryShortCode {
     ?>
   </div>
   <!-- end swiper-wrapper -->
-  <div class="swiper-button-prev"></div>
+  <div class="swiper-button swiper-button-prev"></div>
   <!-- end button-prev -->
-  <div class="swiper-button-next"></div>
+  <div class="swiper-button swiper-button-next"></div>
   <!-- end button-next --> 
 </div>
 <!-- end office-slider -->

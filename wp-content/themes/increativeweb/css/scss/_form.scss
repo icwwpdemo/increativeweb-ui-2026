@@ -1,0 +1,66 @@
+/* FORM ELEMENTS */
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+    width: 100%;
+    height: 55px;
+    border: 2px solid #d4d4e0;
+    padding: 0 15px;
+    border-radius: 4px;
+}
+
+input[type="submit"],
+input[type="button"],
+button[type="button"],
+button[type="submit"] {
+    height: 55px;
+    border: none;
+    background: $color-primary;
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 0 50px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+textarea,
+textarea.form-control {
+    height: 128px;
+    border: 2px solid #d4d4e0;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+select {
+    width: 100%;
+    height: 65px;
+    border: 2px solid #d4d4e0;
+    padding: 0 15px;
+    border-radius: 4px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 30px) 28px, calc(100% - 25px) 28px, calc(100% - 2.5em) 15px;
+    background-size: 5px 5px, 5px 5px, 0px 0px;
+    background-repeat: no-repeat;
+}
+
+select:focus {
+    background-image: linear-gradient(45deg, gray 50%, transparent 50%), linear-gradient(135deg, transparent 50%, gray 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 25px) 26px, calc(100% - 30px) 26px, calc(100% - 2.5em) 15px;
+    background-size: 5px 5px, 5px 5px, 0px 0px;
+    background-repeat: no-repeat;
+    outline: 0;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}

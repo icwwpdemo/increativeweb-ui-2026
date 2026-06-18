@@ -46,12 +46,16 @@ class WPBakeryShortCode_icw_recent_news extends WPBakeryShortCode {
       <?php } ?>  
       <?php // echo get_the_post_thumbnail($post['ID'], 'full'); ?>
       <div class="content"> 
-        <h3 class="h2"><a class="stretched-link" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title'] ?></a></h3>
+        <h3><a class="stretched-link" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title'] ?></a></h3>
         <div class="post-meta">
-          <small class="date"> <?php echo date( ' jS F, Y', strtotime( $post['post_date'] ) );?> </small>
-          <div class="author post-author"><img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo get_avatar_url( get_the_author_meta( "user_email", $post["post_author"] ) ) ?> " alt="<?php the_author_meta( 'display_name', $post['post_author'] ); ?>"> <span>by <b>
-          <?php the_author_meta( 'display_name', $post['post_author'] ); ?>
-          </b></span></div>          
+          
+          <div class="author post-author">
+            <img class="icw-lazy" src="<?php echo esc_url(lazyloading); ?>" data-src="<?php echo get_avatar_url( get_the_author_meta( "user_email", $post["post_author"] ) ) ?> " alt="<?php the_author_meta( 'display_name', $post['post_author'] ); ?>"> 
+            <div>
+              <span><b><?php the_author_meta( 'display_name', $post['post_author'] ); ?></b></span>
+              <small> <?php echo date( ' jS F, Y', strtotime( $post['post_date'] ) );?> </small>
+            </div>
+          </div>          
         </div>
       </div>
     </div>

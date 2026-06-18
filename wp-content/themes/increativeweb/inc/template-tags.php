@@ -44,7 +44,7 @@ if ( !function_exists( 'icw_posted_by' ) ):
     $author_detail = sprintf(
       /* translators: %s: post author. */
       esc_html_x( '%s %s %s', 'post author', 'ICWTHEME' ),
-      '<img src="' . get_avatar_url( get_the_author_meta( "user_email" ) ) . '" alt="' . esc_attr( get_the_author() ) . '">', '<span>', ' by <b>' . esc_html( get_the_author() ) . '</b></span>'
+      '<img src="' . get_avatar_url( get_the_author_meta( "user_email" ) ) . '" alt="' . esc_attr( get_the_author() ) . '">', '<span>', ' <b>' . esc_html( get_the_author() ) . '</b></span>'
     );
 
     echo '<div class="author post-author">' . $author_detail . '</div>';
